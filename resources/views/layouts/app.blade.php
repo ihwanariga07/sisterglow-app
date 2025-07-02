@@ -43,6 +43,20 @@
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/script.js') }}"></script>
 
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/fontawesome.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/icofont.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') }}">
+
+
     @stack('scripts')
 </body>
+
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('assets/js/icons/feather-icon/feather.min.js') }}"></script>
+<script src="{{ asset('assets/js/icons/feather-icon/feather-icon.js') }}"></script>
+<script src="{{ asset('assets/js/sidebar-menu.js') }}"></script>
+<script src="{{ asset('assets/js/script.js') }}"></script>
+
 </html>
