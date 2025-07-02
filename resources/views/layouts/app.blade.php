@@ -18,12 +18,17 @@
     @stack('styles')
 </head>
 <body>
+    @php
+        $authPages = ['login', 'register', 'password/reset', 'password/email'];
+    @endphp
 
-    {{-- Sidebar Cuba Admin --}}
-    @include('layouts.sidebar')
+    @if (!in_array(request()->path(), $authPages))
+        {{-- Sidebar Cuba Admin --}}
+        @include('layouts.sidebar')
 
-    {{-- Navbar Cuba Admin --}}
-    @include('layouts.navbar')
+        {{-- Navbar Cuba Admin --}}
+        @include('layouts.navbar')
+    @endif
 
     {{-- Konten Utama --}}
     <main class="page-body">
@@ -32,8 +37,10 @@
         </div>
     </main>
 
-    {{-- Footer (opsional) --}}
-    @include('layouts.footer')
+    @if (!in_array(request()->path(), $authPages))
+        {{-- Footer Cuba Admin --}}
+        @include('layouts.footer')
+    @endif
 
     {{-- JS Cuba Admin --}}
     <script src="{{ asset('cuba/assets/js/jquery.min.js') }}"></script>
