@@ -3,51 +3,46 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', config('app.name', 'Laravel'))</title>
 
     {{-- Fonts --}}
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-    {{-- CSS Cuba Admin --}}
-    <link href="{{ asset('cuba/assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('cuba/assets/css/style.css') }}" rel="stylesheet">
+    {{-- CSS --}}
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
-    {{-- Tambahkan CSS tambahan jika perlu --}}
     @stack('styles')
 </head>
+
 <body>
     @php
-        $authPages = ['login', 'register', 'password/reset', 'password/email'];
+        $authRoutes = ['login', 'register', 'password.request', 'password.email'];
     @endphp
 
-    @if (!in_array(request()->path(), $authPages))
-        {{-- Sidebar Cuba Admin --}}
-        @include('layouts.sidebar')
-
-        {{-- Navbar Cuba Admin --}}
-        @include('layouts.navbar')
+    {{-- Tampilkan sidebar dan navbar HANYA jika bukan halaman auth --}}
+    @if (!in_array(Route::currentRouteName(), $authRoutes))
+        @includeIf('layouts.sidebar')
+        @includeIf('layouts.navbar')
     @endif
 
-    {{-- Konten Utama --}}
     <main class="page-body">
         <div class="container-fluid py-4">
             @yield('content')
         </div>
     </main>
 
-    @if (!in_array(request()->path(), $authPages))
-        {{-- Footer Cuba Admin --}}
-        @include('layouts.footer')
+    {{-- Footer --}}
+    @if (!in_array(Route::currentRouteName(), $authRoutes))
+        @includeIf('layouts.footer')
     @endif
 
     {{-- JS Cuba Admin --}}
-    <script src="{{ asset('cuba/assets/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('cuba/assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('cuba/assets/js/script.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/script.js') }}"></script>
 
-    {{-- Tambahkan JS tambahan jika perlu --}}
     @stack('scripts')
 </body>
 </html>

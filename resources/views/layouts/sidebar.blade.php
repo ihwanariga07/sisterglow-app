@@ -1,4 +1,4 @@
-<!-- Sidebar placeholder -->
-<aside class="sidebar">
-    <!-- Tempatkan sidebar Cuba Admin di sini -->
-</aside>
+<!-- Sidebar Placeholder -->
+<div class="sidebar bg-light p-3">
+    <h4>Sidebar</h4>
+</div>

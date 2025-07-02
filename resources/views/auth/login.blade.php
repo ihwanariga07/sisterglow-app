@@ -20,7 +20,6 @@
                             <input id="email" type="email"
                                    class="form-control @error('email') is-invalid @enderror"
                                    name="email" value="{{ old('email') }}" required autofocus>
-
                             @error('email')
                                 <div class="text-danger small mt-1">{{ $message }}</div>
                             @enderror
@@ -32,7 +31,6 @@
                             <input id="password" type="password"
                                    class="form-control @error('password') is-invalid @enderror"
                                    name="password" required>
-
                             @error('password')
                                 <div class="text-danger small mt-1">{{ $message }}</div>
                             @enderror
@@ -59,6 +57,15 @@
                             <div class="text-center mt-3">
                                 <a class="text-decoration-none" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
+                                </a>
+                            </div>
+                        @endif
+
+                        {{-- Register link --}}
+                        @if (Route::has('register'))
+                            <div class="text-center mt-2">
+                                <a class="text-decoration-none" href="{{ route('register') }}">
+                                    {{ __('Belum punya akun? Daftar') }}
                                 </a>
                             </div>
                         @endif

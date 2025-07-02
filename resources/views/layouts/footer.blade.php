@@ -1,4 +1,4 @@
-<!-- Footer placeholder -->
-<footer class="footer text-center py-4">
-    <small>&copy; 2025 - Sisterglow Laravel</small>
+<!-- Footer Placeholder -->
+<footer class="text-center mt-4">
+    <p>© 2025 Sisterglow</p>
 </footer>

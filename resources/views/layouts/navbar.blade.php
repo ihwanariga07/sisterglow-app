@@ -1,4 +1,6 @@
-<!-- Navbar placeholder -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <!-- Tempatkan navbar Cuba Admin di sini -->
+<!-- Navbar Placeholder -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+        <a class="navbar-brand" href="#">Sisterglow</a>
+    </div>
 </nav>
