@@ -6,20 +6,22 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_costumer'); // foreign key ke costumerss
+
+            $table->date('booking_date');
+            $table->time('booking_time');
+            $table->decimal('total_harga', 10, 2)->nullable();
+
             $table->timestamps();
+
+            $table->foreign('id_costumer')->references('id')->on('costumerss')->onDelete('cascade');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('bookings');
