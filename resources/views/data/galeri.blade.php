@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layouts.template')
 @section('title')
 Galeri Foto
 @endsection

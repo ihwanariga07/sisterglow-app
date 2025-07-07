@@ -1,29 +1,28 @@
-@extends('layout.master')
-@section('title')
-    Data Layanan
-@endsection
+@extends('layouts.template')
 
-@section('MenuLay')
-    active
-@endsection
+@section('title', 'Data Layanan')
+@section('headline', 'Daftar Layanan')
 
-@section('konten')
-<div class="container text-center mt-3 bg-white">
-    <h2 class="mb-3">Data layanan</h2>
-    <div class="row">
-        <div class="m-auto col-6">
-            <ol class="list-group">
-                @forelse ($data_lay as $lay)
-                    <li class="list-group-item">{{$lay}}</li>
-                @empty
-                <div class="alert alert-secondary" role="alert">
-                    Maaf, Data Layanan Tidak Tersedia
-                </div>
-                @endforelse
-            </ol>
-        </div>
+@section('content')
+<div class="container mt-4">
+    <div class="text-center mb-4">
+        <h4>Data Layanan</h4>
     </div>
 
-    {{-- konten --}}
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            @if(count($data_lay) > 0)
+                <ol class="list-group list-group-numbered shadow-sm">
+                    @foreach ($data_lay as $lay)
+                        <li class="list-group-item">{{ $lay }}</li>
+                    @endforeach
+                </ol>
+            @else
+                <div class="alert alert-warning text-center">
+                    Maaf, Data Layanan Tidak Tersedia.
+                </div>
+            @endif
+        </div>
+    </div>
 </div>
 @endsection

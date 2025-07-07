@@ -1,5 +1,5 @@
 
-@extends('layout.master')
+@extends('layoutstemplate')
 @section('title','Data Costumer')
 @section('MenuCos','active')
 
