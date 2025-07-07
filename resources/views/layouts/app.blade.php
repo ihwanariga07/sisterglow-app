@@ -3,60 +3,88 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', config('app.name', 'Laravel'))</title>
 
-    {{-- Fonts --}}
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
-    {{-- CSS --}}
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-
-    @stack('styles')
+    <link rel="stylesheet" href="{{asset('css/all.css')}}">
+    <!-- Scripts -->
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-
 <body>
-    @php
-        $authRoutes = ['login', 'register', 'password.request', 'password.email'];
-    @endphp
+    <div id="app">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    {{ config('app.name', 'Laravel') }}
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-    {{-- Tampilkan sidebar dan navbar HANYA jika bukan halaman auth --}}
-    @if (!in_array(Route::currentRouteName(), $authRoutes))
-        @includeIf('layouts.sidebar')
-        @includeIf('layouts.navbar')
-    @endif
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/costumer">Data Costumer</a>
+                        </li>
 
-    <main class="page-body">
-        <div class="container-fluid py-4">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/booking">Data Booking</a>
+                        </li>
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ms-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main class="py-4">
             @yield('content')
-        </div>
-    </main>
+        </main>
+    </div>
 
-    {{-- Footer --}}
-    @if (!in_array(Route::currentRouteName(), $authRoutes))
-        @includeIf('layouts.footer')
-    @endif
-
-    {{-- JS Cuba Admin --}}
-    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/js/script.js') }}"></script>
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/fontawesome.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/icofont.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') }}">
-
-
-    @stack('scripts')
+    <script src="{{asset('js/all.js')}}"></script>
+    <script src="{{asset('js/bootstrap.js')}}"></script>
+    <script src="{{asset('js/bootstrap.bundle.js')}}"></script>
 </body>
-
-<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('assets/js/icons/feather-icon/feather.min.js') }}"></script>
-<script src="{{ asset('assets/js/icons/feather-icon/feather-icon.js') }}"></script>
-<script src="{{ asset('assets/js/sidebar-menu.js') }}"></script>
-<script src="{{ asset('assets/js/script.js') }}"></script>
-
 </html>
