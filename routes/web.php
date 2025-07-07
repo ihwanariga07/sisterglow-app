@@ -18,3 +18,13 @@ Route::get('/dashboard', function () {
 
 // Halaman home
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+//Data Costumer
+Route::get('/costumer', [costumerController::class, 'index']);
+Route::get('/costumer/tambah', [costumerController::class, 'create']);
+Route::post('/costumer', [costumerController::class, 'store']);
+Route::get('/costumer/edit/{id}', [costumerController::class, 'edit']);
+Route::put('/costumer/{id}', [dcostumerController::class, 'update']);
+Route::delete('/costumer/{id}', [costumerController::class, 'destroy']);
