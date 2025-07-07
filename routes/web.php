@@ -11,14 +11,19 @@ Route::get('/', function () {
 // Auth bawaan Laravel
 Auth::routes();
 
-// Halaman dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
 
-// Halaman home
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+
+Route::get('/home', function () {
+    return view('home');
+});
+
+Route::get('/cektemplate', function () {
+    return view('layouts.template');
+});
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 //Data Costumer
