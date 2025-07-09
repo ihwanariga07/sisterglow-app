@@ -1,0 +1,446 @@
+Delivered-To: anzalarizkan@gmail.com
+Received: by 2002:a05:7022:21d:b0:9e:d2be:9f57 with SMTP id 29csp434599dll;
+        Sat, 7 Jun 2025 04:31:00 -0700 (PDT)
+X-Received: by 2002:a05:6602:6cc9:b0:873:f23:a39 with SMTP id ca18e2360f4ac-87336511e84mr672339039f.0.1749295860288;
+        Sat, 07 Jun 2025 04:31:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1749295860; cv=none;
+        d=google.com; s=arc-20240605;
+        b=SCb92tLsIT9AfpXjkBqdA6IjB4j7e2y3TJ9lkWQPa7sJM1wv/0gL0YRgr6IKZ1fGtR
+         svV8DAmWO0TN179a10cg30Xynprv+yD4lggb4NcoD0+xADXr227gwjGJzL0JST3rMMEZ
+         hPgytkVor8kK49JI1veZ4rDKBnGeH7YFHxXEMIm69Xw3Puud3y5TVeDv+czWVTCJNQZW
+         7joNnGA0f7Ckxbko4YpHmyhxBO70hmmA23OoGpPBblgOQJPkpOaRSb/T9SLHllWs4FnO
+         d2zSx8Hf4ERzIopPNBXp2lXgLImtgOUBIboevDtRmg6VVqWQgaVlsUWo/fa7UKEG1Ytb
+         /tKA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:from:subject:date:message-id:references:reply-to:mime-version
+         :dkim-signature;
+        bh=9Iobh/8mwIT5RkdH7dlKo8f/9SJ7/oH5EHxB8yFHjto=;
+        fh=t9is6k9DJU99OdCpBiWUaCBhxglv/vqsRoIkyPtzNNw=;
+        b=EMU4z4gHZZxNCq0R8zI/hVMfoXsB65gno6eH/O1dSgaWMGvKisLw5dImyHpReuOWzu
+         Q+vGsb7QDmsRKmSxH9p9w/QRRhXzS+aNy82qmvuFFifwF6r17P+jn57o+UOv5FGXcMfy
+         D3HcK+1oYa4B5tywPWxX3i+bzr3nyzlkUMi0bObGo1Dr/uiMVMUpvZY3wAkSLIpPF1/K
+         B8O7vFhKTSq30P8vqVUsG+Sezui25PknUsddskeSvA8r0bOesVEOP1CIGFunhn2VwM8K
+         X3cNCFHAQMxGfZIqGup4U7LrWV7L0nJdISC4iSQ4UcfdDN4IQUyvrnu0UoLbcnoCfxzd
+         wI5A==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20230601 header.b=eT9QF4ob;
+       spf=pass (google.com: domain of 38yjeabckajizd4h0-e3wd0e-z8-9ad0b7k2aa270.ya8@doclist.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=38yJEaBcKAJIzD4H0-E3wD0E-z8-9AD0B7K2AA270.yA8@doclist.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <38yJEaBcKAJIzD4H0-E3wD0E-z8-9AD0B7K2AA270.yA8@doclist.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id ca18e2360f4ac-8733895877esor156236339f.6.2025.06.07.04.30.59
+        for <anzalarizkan@gmail.com>
+        (Google Transport Security);
+        Sat, 07 Jun 2025 04:31:00 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 38yjeabckajizd4h0-e3wd0e-z8-9ad0b7k2aa270.ya8@doclist.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20230601 header.b=eT9QF4ob;
+       spf=pass (google.com: domain of 38yjeabckajizd4h0-e3wd0e-z8-9ad0b7k2aa270.ya8@doclist.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=38yJEaBcKAJIzD4H0-E3wD0E-z8-9AD0B7K2AA270.yA8@doclist.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1749295859; x=1749900659; dara=google.com;
+        h=to:from:subject:date:message-id:references:reply-to:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=9Iobh/8mwIT5RkdH7dlKo8f/9SJ7/oH5EHxB8yFHjto=;
+        b=eT9QF4obf71kYudBWZvryI5XNy0sZ6Fom/VJ6worBodUQ7tFbdZQli3n66LhB4KhTw
+         SXNm/SxMv7nawl/t0J2Gn2dvQvnrz/XF/hXNm1dn1yKRQfQRKHgE2/C27lFTYXC6Huxu
+         bDgVxNd47CANaE9cScZsElRUoIhub1VMJlCvSWNz+VTayaiDXqPnLSqF7gLXW5aj7Ox0
+         1WVZTUrN+4eKd2t0VQgQz0t0eH6Juyz/zlLu9xBdzFnUlIpaz7/e47s3V5PmcfxyU5vg
+         M8563d9uEt/nHZZIwWoAqk5Wg9NlfwzqC3Y3TZ6IvDULHCArwPDNm20Ox5Zro/3ag7Zd
+         JpMw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749295859; x=1749900659;
+        h=to:from:subject:date:message-id:references:reply-to:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=9Iobh/8mwIT5RkdH7dlKo8f/9SJ7/oH5EHxB8yFHjto=;
+        b=vBERHpppA/2zkTKMe+4WkgBRGByfGDj/zkvLzdDERzTlW2RJRSKeheV0reZl7Xlv58
+         iMG48wzmBtvVINuEmdXV7iscSs+NEnTUD0jMnp/D+VksZWSr1RRiFhitJ5rOTUKKsAYa
+         N4GrtamwqIPTPhCv/NuKVR+OHwSaBW0DEaUznVE7MqJ2LhNvcstlXeZXoKHrC2iUp5iL
+         K/dpVU4O87SpCoJLKQv29GM29rtCH1iR1S3Pku3ODx6a5U4Bx7fr9XsYhBLR3ub/yhBF
+         90Lzw0XjBlcneEpKOgS9IkpjYzTCRibUYf/PXmhH4iqMOr0GOvwAcdYsIinSvyZgoLGW
+         MJjA==
+X-Gm-Message-State: AOJu0YyY3dWUHWhEiQpOLpgmCKs1eTKMhccVbjm6CazzXot9Cj/rT6di
+	ToG52rxehcCmEC7htZ5f8HOEfM8ktTFGuzjLSANSDk3DF4KAP92MF1wuAXRAyDQ9DcNkAzX+Wxg
+	bEz6iKvI=
+X-Google-Smtp-Source: AGHT+IGFla7eVSQh8LOUiNnvDOHLYP86weqXWJTiuVYf+CrpX9b11EO1gPBdKbsw9vr2Fyl4HwTP7T7ckKM=
+MIME-Version: 1.0
+X-Received: by 2002:a05:6602:3f0d:b0:861:6f49:626 with SMTP id
+ ca18e2360f4ac-8733666e8bemr931368739f.6.1749295859598; Sat, 07 Jun 2025
+ 04:30:59 -0700 (PDT)
+Reply-To: Syauqi M <syauqimar2@gmail.com>
+X-No-Auto-Attachment: 1
+References: <b38ba615-e36f-49f7-b933-fa8aa0e7a9d2@docs-share.google.com>
+Message-ID: <autogen-java-5d97f321-6a9d-48d7-a8cf-86283a320d84@google.com>
+Date: Sat, 07 Jun 2025 11:30:59 +0000
+Subject: Folder dibagikan kepada Anda: "cubatemplate"
+From: "Syauqi M (via Google Drive)" <drive-shares-dm-noreply@google.com>
+To: anzalarizkan@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000518a5d0636f9aed7"
+
+--000000000000518a5d0636f9aed7
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+
+Saya telah berbagi sebuah item dengan Anda:
+
+cubatemplate
+https://drive.google.com/drive/folders/1Z1Suq_khgjAs6qp6-eSs3CMiqkDiROqY?usp=sharing&ts=684422f3
+
+Item ini bukan lampiran -- item ini disimpan secara online. Untuk  
+membukanya, klik saja link di atas.
+
+--000000000000518a5d0636f9aed7
+Content-Type: text/x-amp-html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html><html amp4email><head><meta charset=3D"utf-8"><script async =
+src=3D"https://cdn.ampproject.org/v0.js"></script><script async custom-elem=
+ent=3D"amp-list" src=3D"https://cdn.ampproject.org/v0/amp-list-0.1.js"></sc=
+ript><script async custom-template=3D"amp-mustache" src=3D"https://cdn.ampp=
+roject.org/v0/amp-mustache-0.2.js"></script><script async custom-element=3D=
+"amp-form" src=3D"https://cdn.ampproject.org/v0/amp-form-0.1.js"></script><=
+script async custom-element=3D"amp-bind" src=3D"https://cdn.ampproject.org/=
+v0/amp-bind-0.1.js"></script><script async custom-element=3D"amp-timeago" s=
+rc=3D"https://cdn.ampproject.org/v0/amp-timeago-0.1.js"></script><style amp=
+4email-boilerplate>body{visibility:hidden}</style><style amp-custom>.materi=
+al-button-filled{background-color: #1a73e8; color: #fff;}.material-button-f=
+illed:hover{background-color: #1b55c9; box-shadow: 0 1px 2px 0 rgba(60, 64,=
+ 67, 0.3), 0 1px 3px 1px rgba(60,64,67,0.15);}.material-button-filled:focus=
+{background-color: #1b5fb9; box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), =
+0 1px 3px 1px rgba(60,64,67,0.15);}.material-button-filled:active{backgroun=
+d-color: #1b63c1; box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px =
+2px rgba(60, 64, 67, 0.15);}.material-button-filled:disabled{background-col=
+or: rgba(60, 64, 67, .12); color: rgba(60, 64, 67, .38);}.material-button{-=
+webkit-appearance: none; cursor: pointer; outline: none;}.material-button:f=
+ocus {outline: 1px solid transparent;}.material-button:disabled{cursor: ini=
+tial; outline: none;}.material-button-transparent{background-color: transpa=
+rent; color: #1a73e8;}.material-button-transparent:hover{background-color: =
+rgba(26, 115, 232, .04);}.material-button-transparent:focus{background-colo=
+r: rgba(26, 115, 232, .12);}.material-button-transparent:active{background-=
+color: rgba(26, 115, 232, .12); box-shadow: 0 1px 3px 1px rgba(60, 64, 67, =
+.15);}.material-button-transparent:disabled{background-color: transparent; =
+color: #3c4043; opacity: 0.38;}@media screen and (max-width: 600px){.conten=
+t-spacer{height: 24px;}.content-spacer-small{height: 12px;}}@media screen a=
+nd (min-width: 601px){.content-spacer{height: 32px;}.content-spacer-small{h=
+eight: 20px;}}.dynamic-content-container-wrapper {margin-left: -6px; table-=
+layout: fixed; width: calc(100% + 12px);}.dynamic-content-container-wrapper=
+ * {hyphens: auto; overflow-wrap: break-word; word-wrap: break-word; word-b=
+reak: break-word;}#dynamic-content-container {border-radius: 8px; border: 1=
+px solid #DADCE0;box-sizing: border-box;}.thumbnail-link {border-radius: 8p=
+x; border: 1px solid #DADCE0;box-sizing: border-box;}#dynamic-content-conta=
+iner {display: inline-block; max-width: 100%; padding: 20px; width: 405px;}=
+#dynamic-content-container > * + * {margin-top: 18px;}.dynamic-content-head=
+ing {display: flex; flex-direction: row;}.dynamic-content-heading > * + * {=
+margin-left: 10px;}#star-form, #star-button {height: 22px; position: relati=
+ve; width: 22px;}#star-button {background: none; border: none; display: blo=
+ck; outline: none; z-index: 1;}#star-button[disabled] {opacity: 0.4;}#star-=
+button:not([disabled]) {cursor: pointer;}#star-button:not([disabled]):hover=
+ + .star-button-circle, #star-button:not([disabled]):focus + .star-button-c=
+ircle{display: block; outline: 1px solid transparent;}.star-button-circle {=
+background-color: #dde3ea; border-radius: 50%; display: none; height: 32px;=
+ left: 50%; position: absolute; top: 50%; transform: translate(-50%, -50%);=
+ width: 32px;}.unstarred-icon, .starred-icon {bottom: 0; left: 0; position:=
+ absolute; right: 0; top: 0; visibility: hidden;}#star-button.starred > .st=
+arred-icon, #star-button.unstarred > .unstarred-icon {visibility: visible;}=
+#star-error-message {color: #D93025; font: 400 14px/16px Roboto, Arial, Hel=
+vetica, sans-serif; margin-top: 5px;}.display-none {display: none;}.thumbna=
+il-link {display: block; overflow: hidden; position: relative;}.thumbnail-o=
+pen {align-items: center; background-color: #202124; bottom: 0; color: whit=
+e; display: none; font: 400 14px/16px Google Sans, Roboto, Arial, Helvetica=
+, sans-serif; justify-content: center; left: 0; letter-spacing: 0.15px; opa=
+city: 65%; position: absolute; right: 0; top: 0; z-index: 1;}.thumbnail-lin=
+k:hover > .thumbnail-open, .thumbnail-link:focus > .thumbnail-open {display=
+: flex;}amp-img.cover img {object-fit: cover; object-position: 0 0;}.large-=
+icon-container {align-items: center; display: flex; height: 100%; justify-c=
+ontent: center;}.dynamic-message {align-items: center; display: flex; flex-=
+direction: row;}.dynamic-message > amp-img {flex-shrink: 0;}.dynamic-messag=
+e > span {color: #5F6368;font: 400 14px/18px Roboto, Arial, Helvetica, sans=
+-serif; letter-spacing: 0; margin-left: 18px;}.dynamic-message-summary {mar=
+gin-left: 16px; margin-top: 4px;}.blue-text-header {color: #1a73e8; font-we=
+ight: 500;}.horizontal-rule-wrapper {margin-top: 16px;}#amp-timeago {displa=
+y: inline;}</style></head><body><amp-list diffable binding=3D"refresh-evalu=
+ate" src=3D"https://drive.google.com/sharing/boq/dynamicmail/fetchinvite?ts=
+=3D684422f3&amp;shareService=3Dsmores&amp;hl=3Did&amp;id=3D1Z1Suq_khgjAs6qp=
+6-eSs3CMiqkDiROqY&amp;dynamicEmailToken=3DAbHZ1PaHALEG2c_Ayy8TnrpQeqRHzjFeC=
+rby21lZECBuhb80DdZV7t7YDihy5emsVXlFJqakIiU0Ntfu6h9IOhVul_V0GREYmJjI7toRyzJh=
+hXCVPDCo-XdIV8Rgego%3D&amp;resourcekey&amp;buildLabel=3Ddrive.explorer_2025=
+0604.00_p0" single-item items=3D"." layout=3D"container"><template type=3D"=
+amp-mustache"><table style=3D"border-collapse: collapse; width: 100%; backg=
+round-color: white; text-align: center;" role=3D"presentation"><tr><td styl=
+e=3D"padding: 24px 0 16px 0;"><table style=3D"border-collapse: collapse;fon=
+t-family: Roboto, Arial, Helvetica, sans-serif;hyphens: auto; overflow-wrap=
+: break-word; word-wrap: break-word; word-break: break-word;width: 90%; mar=
+gin: auto;max-width: 700px;min-width: 280px; text-align: left;" role=3D"pre=
+sentation"><tr><td style=3D"padding: 0;"><table style=3D"width:100%; border=
+: 1px solid #dadce0; border-radius: 8px; border-spacing: 0; table-layout:fi=
+xed; border-collapse: separate;" role=3D"presentation"><tr><td style=3D"pad=
+ding: 4.5%;" dir=3D"ltr"><div style=3D"margin-bottom:32px;font-family: Goog=
+le Sans, Roboto, Arial, Helvetica, sans-serif; font-style: normal; font-siz=
+e: 28px; line-height: 36px; color: #3c4043;">Syauqi M membagikan folder</di=
+v><table style=3D"border-collapse: collapse;font-family: Roboto, Arial, Hel=
+vetica, sans-serif; font-size:16px; line-height:24px; color:#202124; letter=
+-spacing:0.1px; table-layout:fixed; width:100%; overflow-wrap: break-word;"=
+ role=3D"presentation"><tr><td style=3D"padding: 0; vertical-align:top; wid=
+th:50px;"><div><amp-img style=3D"border-radius:50%; display:block;" width=
+=3D"50" height=3D"50" src=3D"https://lh3.googleusercontent.com/a/ACg8ocI3PD=
+HwFw1Qd-er-0rfOy0lgBsa7B2Npw4sigpUoo5EIOctv4TZ=3Ds64" alt=3D"Foto profil he=
+ader"></amp-img></div></td><td style=3D"padding: 0; vertical-align:top; pad=
+ding-left:12px;"><div style=3D"padding-top:12px;">Syauqi M (<a href=3D"mail=
+to:syauqimar2@gmail.com" style=3D"color:inherit;text-decoration:none">syauq=
+imar2@gmail.com</a>) telah mengundang Anda untuk <b>berkontribusi pada</b> =
+folder bersama berikut:</div></td></tr></table><table class=3D"dynamic-cont=
+ent-container-wrapper" role=3D"presentation"><tr style=3D"height: 20px;"></=
+tr><tr><td id=3D"dynamic-content-container" role=3D"presentation" tabindex=
+=3D"0"><div class=3D"dynamic-content-heading"><a href=3D"https://drive.goog=
+le.com/drive/folders/1Z1Suq_khgjAs6qp6-eSs3CMiqkDiROqY?usp=3Dsharing_eil_se=
+_dm&amp;ts=3D684422f3" target=3D"_blank" style=3D"color: #3c4043; display: =
+inline-block; max-width: 100%; text-decoration: none; vertical-align: top;d=
+isplay: flex; flex-direction: column; justify-content: center;"><div style=
+=3D"line-height: 18px; overflow: hidden; text-overflow: ellipsis;display: f=
+lex;"><span style=3D"display: inline-block; vertical-align: top; min-width:=
+ 26px; width: 26px;"><amp-img src=3D"https://ssl.gstatic.com/docs/documents=
+/share/images/services/folder-3.png" width=3D"18" height=3D"18" style=3D"ve=
+rtical-align: top;" role=3D"presentation"></amp-img></span><span style=3D"f=
+ont: 500 14px/18px Google Sans, Roboto, Arial, Helvetica, sans-serif; displ=
+ay: inline; letter-spacing: 0.2px;">cubatemplate</span></div></a><form id=
+=3D"star-form" action-xhr=3D"https://drive.google.com/sharing/boq/dynamicma=
+il/star?ts=3D684422f3&amp;shareService=3Dsmores&amp;hl=3Did&amp;id=3D1Z1Suq=
+_khgjAs6qp6-eSs3CMiqkDiROqY&amp;dynamicEmailToken=3DAbHZ1PaHALEG2c_Ayy8Tnrp=
+QeqRHzjFeCrby21lZECBuhb80DdZV7t7YDihy5emsVXlFJqakIiU0Ntfu6h9IOhVul_V0GREYmJ=
+jI7toRyzJhhXCVPDCo-XdIV8Rgego%3D&amp;resourcekey&amp;buildLabel=3Ddrive.exp=
+lorer_20250604.00_p0" method=3D"post" on=3D"submit: dynamic-content-contain=
+er.focus, AMP.setState({starButton: {value: starButton =3D=3D null ? {{star=
+redByRequester}} : starButton.value, inProgress: true, error: false}}); sub=
+mit-success: AMP.setState({starButton: {value: !starButton.value, inProgres=
+s: false, error: false}}); submit-error: AMP.setState({starButton: {inProgr=
+ess: false, error: true}});"><input type=3D"hidden" name=3D"starred" value=
+=3D"{{#starredByRequester}}false{{/starredByRequester}}{{^starredByRequeste=
+r}}true{{/starredByRequester}}" data-amp-bind-value=3D"starButton.value ? '=
+false' : 'true'"><button id=3D"star-button" class=3D"{{#starredByRequester}=
+}starred{{/starredByRequester}}{{^starredByRequester}}unstarred{{/starredBy=
+Requester}}" data-amp-bind-class=3D"starButton.value ? 'starred' : 'unstarr=
+ed'" type=3D"submit" aria-live=3D"polite" aria-label=3D"{{#starredByRequest=
+er}}Berbintang{{/starredByRequester}}{{^starredByRequester}}Tidak berbintan=
+g{{/starredByRequester}}" data-amp-bind-aria-label=3D"starButton.value ? 'B=
+erbintang' : 'Tidak berbintang'" title=3D"Bintangi di Drive" data-amp-bind-=
+disabled=3D"starButton.inProgress"><amp-img src=3D"https://fonts.gstatic.co=
+m/s/i/googlematerialicons/star_border/v8/gm_grey-48dp/1x/gm_star_border_gm_=
+grey_48dp.png" layout=3D"fixed" width=3D"22" height=3D"22" role=3D"presenta=
+tion" aria-hidden=3D"true" class=3D"unstarred-icon"></amp-img><amp-img src=
+=3D"https://fonts.gstatic.com/s/i/googlematerialicons/star/v8/gm_grey-48dp/=
+1x/gm_star_gm_grey_48dp.png" layout=3D"fixed" width=3D"22" height=3D"22" ro=
+le=3D"presentation" aria-hidden=3D"true" class=3D"starred-icon"></amp-img><=
+/button><div class=3D"star-button-circle"></div></form></div><div id=3D"sta=
+r-error-message" class=3D"display-none" data-amp-bind-class=3D"starButton.e=
+rror ? '' : 'display-none'">Terjadi error. Coba lagi</div><a href=3D"https:=
+//drive.google.com/drive/folders/1Z1Suq_khgjAs6qp6-eSs3CMiqkDiROqY?usp=3Dsh=
+aring_eil_se_dm&amp;ts=3D684422f3" target=3D"_blank" class=3D"thumbnail-lin=
+k"><amp-layout layout=3D"responsive" width=3D"386" height=3D"202">{{#thumbn=
+ailUrl}}<amp-img class=3D"cover" src=3D"{{thumbnailUrl}}" layout=3D"fill"><=
+div class=3D"large-icon-container" fallback><amp-img src=3D"https://drive-t=
+hirdparty.googleusercontent.com/256/type/application/vnd.google-apps.folder=
+" width=3D"80" height=3D"80"></amp-img></div></amp-img>{{/thumbnailUrl}}{{^=
+thumbnailUrl}}<div class=3D"large-icon-container"><amp-img src=3D"https://d=
+rive-thirdparty.googleusercontent.com/256/type/application/vnd.google-apps.=
+folder" width=3D"80" height=3D"80"></amp-img></div>{{/thumbnailUrl}}</amp-l=
+ayout><div class=3D"thumbnail-open">Buka</div></a>{{#summaryDescription}}<d=
+iv><div class=3D"dynamic-message"><amp-img src=3D"https://www.gstatic.com/d=
+ocs/documents/share/images/smart_summary.png" layout=3D"fixed" width=3D"16"=
+ height=3D"16" role=3D"presentation" aria-hidden=3D"true"></amp-img><span><=
+span class=3D"blue-text-header">Ringkasan</span></span></div><div class=3D"=
+dynamic-message dynamic-message-summary"><span>{{summaryDescription}}</span=
+></div><div class=3D"horizontal-rule-wrapper"><div style=3D"height: 1px; ba=
+ckground-color: #DADCE0;"></div></div></div>{{/summaryDescription}}{{#owner=
+OrCreatorMessage}}<div class=3D"dynamic-message"><amp-img src=3D"https://ww=
+w.gstatic.com/docs/documents/share/images/person_with_whitespace_128_128.pn=
+g" layout=3D"fixed" width=3D"16" height=3D"16" role=3D"presentation" aria-h=
+idden=3D"true"></amp-img><span>{{ownerOrCreatorMessage}}</span></div>{{/own=
+erOrCreatorMessage}}{{#lastEdited}}<div class=3D"dynamic-message"><amp-img =
+src=3D"https://www.gstatic.com/docs/documents/share/images/clock_with_white=
+space_128_128.png" layout=3D"fixed" width=3D"16" height=3D"16" role=3D"pres=
+entation" aria-hidden=3D"true"></amp-img><span>{{#lastEdited.editor}}Terakh=
+ir diedit <amp-timeago id=3D"amp-timeago" layout=3D"fixed-height" height=3D=
+"1" datetime=3D"{{lastEdited.datetime}}" locale=3D"in">{{lastEdited.datetim=
+e}}</amp-timeago> oleh {{lastEdited.editor}}{{/lastEdited.editor}}{{^lastEd=
+ited.editor}}Terakhir diedit <amp-timeago id=3D"amp-timeago" layout=3D"fixe=
+d-height" height=3D"1" datetime=3D"{{lastEdited.datetime}}" locale=3D"in">{=
+{lastEdited.datetime}}</amp-timeago>{{/lastEdited.editor}}</span></div>{{/l=
+astEdited}}</td></tr></table><table style=3D"border-collapse: collapse;" ro=
+le=3D"presentation"><tr style=3D"height: 32px"><td></td></tr></table><div><=
+a href=3D"https://drive.google.com/drive/folders/1Z1Suq_khgjAs6qp6-eSs3CMiq=
+kDiROqY?usp=3Dsharing_eip_se_dm&amp;ts=3D684422f3" class=3D"material-button=
+ material-button-filled" target=3D"_blank" tabindex=3D"0" role=3D"button" s=
+tyle=3D"padding: 0 24px;font: 500 14px/36px Google Sans, Roboto, Arial, Hel=
+vetica, sans-serif; border: none; border-radius: 18px; box-sizing: border-b=
+ox; display: inline-block; letter-spacing: .25px; min-height: 36px; text-al=
+ign: center; text-decoration: none;">Buka</a></div></td></tr></table><table=
+ style=3D"border-collapse: collapse; width: 100%;" role=3D"presentation"><t=
+r><td style=3D"padding: 24px 4.5%"><table style=3D"border-collapse: collaps=
+e; width: 100%;" dir=3D"ltr"><tr><td style=3D"padding: 0;font-family: Robot=
+o, Arial, Helvetica, sans-serif; color: #5F6368; width: 100%; font-size: 12=
+px; line-height: 16px; min-height: 40px; letter-spacing: .3px;"><div>Apakah=
+ item ini tampak mencurigakan? <a href=3D"https://drive.google.com/drive/bl=
+ockuser?blockerEmail=3Danzalarizkan@gmail.com&amp;blockeeEmail=3Dsyauqimar2=
+@gmail.com&amp;usp=3Dsharing_eib_se_dm" target=3D"_blank" style=3D"color: #=
+1a73e8; text-decoration: underline;;">Blokir pengirim</a></div> <br/>Google=
+ LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA<br/> Anda men=
+erima email ini karena <a href=3D"mailto:syauqimar2@gmail.com" style=3D"col=
+or:inherit;text-decoration:none">syauqimar2@gmail.com</a> membagikan file a=
+tau folder yang ada di Google Drive kepada Anda.</td><td style=3D"padding: =
+0;padding-left: 20px; min-width: 96px"><a href=3D"https://www.google.com/" =
+target=3D"_blank" style=3D"text-decoration: none"><amp-img src=3D"https://w=
+ww.gstatic.com/images/branding/googlelogo/2x/googlelogo_grey_tm_color_96x40=
+dp.png" width=3D"96" height=3D"40" alt=3D"Google" style=3D"font-size:16px;f=
+ont-weight:500;color:#5F6368"></amp-img></a></td></tr></table></td></tr></t=
+able></td></tr></table></td></tr></table></template><div role=3D"list"><tab=
+le style=3D"border-collapse: collapse; width: 100%; background-color: white=
+; text-align: center;" role=3D"presentation"><tr><td style=3D"padding: 24px=
+ 0 16px 0;"><table style=3D"border-collapse: collapse;font-family: Roboto, =
+Arial, Helvetica, sans-serif;hyphens: auto; overflow-wrap: break-word; word=
+-wrap: break-word; word-break: break-word;width: 90%; margin: auto;max-widt=
+h: 700px;min-width: 280px; text-align: left;" role=3D"presentation"><tr><td=
+ style=3D"padding: 0;"><table style=3D"width:100%; border: 1px solid #dadce=
+0; border-radius: 8px; border-spacing: 0; table-layout:fixed; border-collap=
+se: separate;" role=3D"presentation"><tr><td style=3D"padding: 4.5%;" dir=
+=3D"ltr"><div style=3D"margin-bottom:32px;font-family: Google Sans, Roboto,=
+ Arial, Helvetica, sans-serif; font-style: normal; font-size: 28px; line-he=
+ight: 36px; color: #3c4043;">Syauqi M membagikan folder</div><table style=
+=3D"border-collapse: collapse;font-family: Roboto, Arial, Helvetica, sans-s=
+erif; font-size:16px; line-height:24px; color:#202124; letter-spacing:0.1px=
+; table-layout:fixed; width:100%; overflow-wrap: break-word;" role=3D"prese=
+ntation"><tr><td style=3D"padding: 0; vertical-align:top; width:50px;"><div=
+><amp-img style=3D"border-radius:50%; display:block;" width=3D"50" height=
+=3D"50" src=3D"https://lh3.googleusercontent.com/a/ACg8ocI3PDHwFw1Qd-er-0rf=
+Oy0lgBsa7B2Npw4sigpUoo5EIOctv4TZ=3Ds64" alt=3D"Foto profil header"></amp-im=
+g></div></td><td style=3D"padding: 0; vertical-align:top; padding-left:12px=
+;"><div style=3D"padding-top:12px;">Syauqi M (<a href=3D"mailto:syauqimar2@=
+gmail.com" style=3D"color:inherit;text-decoration:none">syauqimar2@gmail.co=
+m</a>) telah mengundang Anda untuk <b>berkontribusi pada</b> folder bersama=
+ berikut:</div></td></tr></table><table style=3D"border-spacing:0 4px; tabl=
+e-layout:fixed; width:100%; overflow-wrap: break-word;" role=3D"presentatio=
+n"><tr style=3D"height:28px;"></tr><tr><td style=3D"padding: 0;"><a href=3D=
+"https://drive.google.com/drive/folders/1Z1Suq_khgjAs6qp6-eSs3CMiqkDiROqY?u=
+sp=3Dsharing_eil_se_dm&amp;ts=3D684422f3" target=3D"_blank" style=3D"color:=
+ #3c4043; display: inline-block; max-width: 100%; text-decoration: none; ve=
+rtical-align: top;border: 1px solid #DADCE0; border-radius: 16px; white-spa=
+ce: nowrap;"><div style=3D"line-height: 18px; overflow: hidden; text-overfl=
+ow: ellipsis;padding: 6px 12px;"><span style=3D"display: inline-block; vert=
+ical-align: top; min-width: 26px; width: 26px;"><amp-img src=3D"https://ssl=
+.gstatic.com/docs/documents/share/images/services/folder-3.png" width=3D"18=
+" height=3D"18" style=3D"vertical-align: top;" role=3D"presentation"></amp-=
+img></span><span style=3D"font: 500 14px/18px Google Sans, Roboto, Arial, H=
+elvetica, sans-serif; display: inline; letter-spacing: 0.2px;">cubatemplate=
+</span></div></a></td></tr></table><table style=3D"border-collapse: collaps=
+e;" role=3D"presentation"><tr style=3D"height: 32px"><td></td></tr></table>=
+<div><a href=3D"https://drive.google.com/drive/folders/1Z1Suq_khgjAs6qp6-eS=
+s3CMiqkDiROqY?usp=3Dsharing_eip_se_dm&amp;ts=3D684422f3" class=3D"material-=
+button material-button-filled" target=3D"_blank" tabindex=3D"0" role=3D"but=
+ton" style=3D"padding: 0 24px;font: 500 14px/36px Google Sans, Roboto, Aria=
+l, Helvetica, sans-serif; border: none; border-radius: 18px; box-sizing: bo=
+rder-box; display: inline-block; letter-spacing: .25px; min-height: 36px; t=
+ext-align: center; text-decoration: none;">Buka</a></div></td></tr></table>=
+<table style=3D"border-collapse: collapse; width: 100%;" role=3D"presentati=
+on"><tr><td style=3D"padding: 24px 4.5%"><table style=3D"border-collapse: c=
+ollapse; width: 100%;" dir=3D"ltr"><tr><td style=3D"padding: 0;font-family:=
+ Roboto, Arial, Helvetica, sans-serif; color: #5F6368; width: 100%; font-si=
+ze: 12px; line-height: 16px; min-height: 40px; letter-spacing: .3px;"><div>=
+Apakah item ini tampak mencurigakan? <a href=3D"https://drive.google.com/dr=
+ive/blockuser?blockerEmail=3Danzalarizkan@gmail.com&amp;blockeeEmail=3Dsyau=
+qimar2@gmail.com&amp;usp=3Dsharing_eib_se_dm" target=3D"_blank" style=3D"co=
+lor: #1a73e8; text-decoration: underline;;">Blokir pengirim</a></div> <br/>=
+Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA<br/> An=
+da menerima email ini karena <a href=3D"mailto:syauqimar2@gmail.com" style=
+=3D"color:inherit;text-decoration:none">syauqimar2@gmail.com</a> membagikan=
+ file atau folder yang ada di Google Drive kepada Anda.</td><td style=3D"pa=
+dding: 0;padding-left: 20px; min-width: 96px"><a href=3D"https://www.google=
+.com/" target=3D"_blank" style=3D"text-decoration: none"><amp-img src=3D"ht=
+tps://www.gstatic.com/images/branding/googlelogo/2x/googlelogo_grey_tm_colo=
+r_96x40dp.png" width=3D"96" height=3D"40" alt=3D"Google" style=3D"font-size=
+:16px;font-weight:500;color:#5F6368"></amp-img></a></td></tr></table></td><=
+/tr></table></td></tr></table></td></tr></table></div></amp-list></body></h=
+tml>
+--000000000000518a5d0636f9aed7
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head></head><body><table style=3D"border-collapse: collapse; width: =
+100%; background-color: white; text-align: center;" role=3D"presentation"><=
+tr><td style=3D"padding: 24px 0 16px 0;"><table style=3D"border-collapse: c=
+ollapse;font-family: Roboto, Arial, Helvetica, sans-serif;hyphens: auto; ov=
+erflow-wrap: break-word; word-wrap: break-word; word-break: break-word;widt=
+h: 90%; margin: auto;max-width: 700px;min-width: 280px; text-align: left;" =
+role=3D"presentation"><tr><td style=3D"padding: 0;"><table style=3D"width:1=
+00%; border: 1px solid #dadce0; border-radius: 8px; border-spacing: 0; tabl=
+e-layout:fixed; border-collapse: separate;" role=3D"presentation"><tr><td s=
+tyle=3D"padding: 4.5%;" dir=3D"ltr"><div style=3D"margin-bottom:32px;font-f=
+amily: Google Sans, Roboto, Arial, Helvetica, sans-serif; font-style: norma=
+l; font-size: 28px; line-height: 36px; color: #3c4043;">Syauqi M membagikan=
+ folder</div><table style=3D"border-collapse: collapse;font-family: Roboto,=
+ Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; color:#202=
+124; letter-spacing:0.1px; table-layout:fixed; width:100%; overflow-wrap: b=
+reak-word;" role=3D"presentation"><tr><td style=3D"padding: 0; vertical-ali=
+gn:top; width:50px;"><!--[if mso]><v:oval xmlns:v=3D"urn:schemas-microsoft-=
+com:vml" xmlns:w=3D"urn:schemas-microsoft-com:office:word" style=3D"height:=
+50px;width:50px;" fill=3D"t" stroke=3D"f"><v:fill type=3D"frame" src=3D"htt=
+ps://lh3.googleusercontent.com/a/ACg8ocI3PDHwFw1Qd-er-0rfOy0lgBsa7B2Npw4sig=
+pUoo5EIOctv4TZ=3Ds64" alt=3D"Foto profil header" style=3D"height:50px;width=
+:50px;"/></v:oval><![endif]--><div style=3D"mso-hide:all;"><img style=3D"bo=
+rder-radius:50%; display:block;" width=3D"50" height=3D"50" src=3D"https://=
+lh3.googleusercontent.com/a/ACg8ocI3PDHwFw1Qd-er-0rfOy0lgBsa7B2Npw4sigpUoo5=
+EIOctv4TZ=3Ds64" alt=3D"Foto profil header"></div></td><td style=3D"padding=
+: 0; vertical-align:top; padding-left:12px;"><div style=3D"padding-top:12px=
+;">Syauqi M (<a href=3D"mailto:syauqimar2@gmail.com" style=3D"color:inherit=
+;text-decoration:none">syauqimar2@gmail.com</a>) telah mengundang Anda untu=
+k <b>berkontribusi pada</b> folder bersama berikut:</div></td></tr></table>=
+<table style=3D"border-spacing:0 4px; table-layout:fixed; width:100%; overf=
+low-wrap: break-word;" role=3D"presentation"><tr style=3D"height:28px;"></t=
+r><tr><td style=3D"padding: 0;"><a href=3D"https://drive.google.com/drive/f=
+olders/1Z1Suq_khgjAs6qp6-eSs3CMiqkDiROqY?usp=3Dsharing_eil&amp;ts=3D684422f=
+3" target=3D"_blank" style=3D"color: #3c4043; display: inline-block; max-wi=
+dth: 100%; text-decoration: none; vertical-align: top;border: 1px solid #DA=
+DCE0; border-radius: 16px; white-space: nowrap;"><div style=3D"line-height:=
+ 18px; overflow: hidden; text-overflow: ellipsis;padding: 6px 12px;"><span =
+style=3D"display: inline-block; vertical-align: top; min-width: 26px; width=
+: 26px;"><img src=3D"https://ssl.gstatic.com/docs/documents/share/images/se=
+rvices/folder-3.png" width=3D"18" height=3D"18" style=3D"vertical-align: to=
+p;" role=3D"presentation"></span><span style=3D"font: 500 14px/18px Google =
+Sans, Roboto, Arial, Helvetica, sans-serif; display: inline; letter-spacing=
+: 0.2px;">cubatemplate</span></div></a></td></tr></table><table style=3D"bo=
+rder-collapse: collapse;" role=3D"presentation"><tr style=3D"height: 32px">=
+<td></td></tr></table><div><!--[if mso]><v:roundrect xmlns:v=3D"urn:schemas=
+-microsoft-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:office:word" href=
+=3D"https://drive.google.com/drive/folders/1Z1Suq_khgjAs6qp6-eSs3CMiqkDiROq=
+Y?usp=3Dsharing_eip&amp;ts=3D684422f3" style=3D"height:36px; width:100px; v=
+-text-anchor:middle;" arcsize=3D"50%" stroke=3D"f" fillcolor=3D"#1a73e8"><w=
+:anchorlock/><center style=3D"color:#ffffff;font-family:Arial,Helvetica,san=
+s-serif;font-weight:500;font-size:14px;">Buka </center></v:roundrect><![end=
+if]--><a href=3D"https://drive.google.com/drive/folders/1Z1Suq_khgjAs6qp6-e=
+Ss3CMiqkDiROqY?usp=3Dsharing_eip&amp;ts=3D684422f3" class=3D"material-butto=
+n material-button-filled" target=3D"_blank" tabindex=3D"0" role=3D"button" =
+style=3D"mso-hide:all;padding: 0 24px;font: 500 14px/36px Google Sans, Robo=
+to, Arial, Helvetica, sans-serif; border: none; border-radius: 18px; box-si=
+zing: border-box; display: inline-block; letter-spacing: .25px; min-height:=
+ 36px; text-align: center; text-decoration: none;background-color: #1a73e8;=
+ color: #fff; cursor: pointer;">Buka</a></div></td></tr></table><table styl=
+e=3D"border-collapse: collapse; width: 100%;" role=3D"presentation"><tr><td=
+ style=3D"padding: 24px 4.5%"><table style=3D"border-collapse: collapse; wi=
+dth: 100%;" dir=3D"ltr"><tr><td style=3D"padding: 0;font-family: Roboto, Ar=
+ial, Helvetica, sans-serif; color: #5F6368; width: 100%; font-size: 12px; l=
+ine-height: 16px; min-height: 40px; letter-spacing: .3px;"><div>Apakah item=
+ ini tampak mencurigakan? <a href=3D"https://drive.google.com/drive/blockus=
+er?blockerEmail=3Danzalarizkan@gmail.com&amp;blockeeEmail=3Dsyauqimar2@gmai=
+l.com&amp;usp=3Dsharing_eib" target=3D"_blank" style=3D"color: #1a73e8; tex=
+t-decoration: underline;;">Blokir pengirim</a></div> <br/>Google LLC, 1600 =
+Amphitheatre Parkway, Mountain View, CA 94043, USA<br/> Anda menerima email=
+ ini karena <a href=3D"mailto:syauqimar2@gmail.com" style=3D"color:inherit;=
+text-decoration:none">syauqimar2@gmail.com</a> membagikan file atau folder =
+yang ada di Google Drive kepada Anda.</td><td style=3D"padding: 0;padding-l=
+eft: 20px; min-width: 96px"><a href=3D"https://www.google.com/" target=3D"_=
+blank" style=3D"text-decoration: none"><img src=3D"https://www.gstatic.com/=
+images/branding/googlelogo/2x/googlelogo_grey_tm_color_96x40dp.png" width=
+=3D"96" height=3D"40" alt=3D"Google" style=3D"font-size:16px;font-weight:50=
+0;color:#5F6368"></a></td></tr></table></td></tr></table></td></tr></table>=
+</td></tr></table></body></html>
+--000000000000518a5d0636f9aed7--
