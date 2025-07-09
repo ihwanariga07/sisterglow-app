@@ -10,16 +10,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
-Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
-
-
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-});
-
-
-
 Route::get('/home', function () {
     return view('home');
 });
