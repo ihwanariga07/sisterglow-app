@@ -34,6 +34,11 @@
                             <a class="nav-link" href="/costumer">Data Costumer</a>
                         </li>
 
+                         <li class="nav-item">
+                            <a class="nav-link" href="/layanan">Data Layanan</a>
+                        </li>
+
+
                         <li class="nav-item">
                             <a class="nav-link" href="/booking">Data Booking</a>
                         </li>

@@ -1,3 +1,5 @@
+@extends('layouts.cuba')
+
 @extends('layouts.app')
 
 @section('content')
