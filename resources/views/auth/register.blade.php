@@ -1,6 +1,5 @@
-@extends('layouts.cuba')
 
-@extends('layouts.app')
+@extends('layout.guest')
 
 @section('title', 'Register')
 

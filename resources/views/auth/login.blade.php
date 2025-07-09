@@ -1,6 +1,4 @@
-@extends('layouts.cuba')
-
-@extends('layouts.app')
+@extends('layout.guest')
 
 @section('content')
 <div class="container">

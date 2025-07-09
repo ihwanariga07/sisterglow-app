@@ -1,5 +1,5 @@
-@extends('layouts.app')
 @extends('layouts.cuba')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -21,4 +21,8 @@
         </div>
     </div>
 </div>
+ <footer class="fixed-bottom bg-dark text-white py-2 mt-4 text-center">
+        Copyright &copy; SISTERGLOW
+    </footer>
+
 @endsection

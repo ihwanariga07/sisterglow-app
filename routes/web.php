@@ -14,3 +14,7 @@ Route::get('/home', function () {
     return view('home');
 });
 
+// Route::get('/dashboard', function () {
+//     return view('dashboard'); // Memanggil view dashboard.blade.php
+// })->name('dashboard');
+
