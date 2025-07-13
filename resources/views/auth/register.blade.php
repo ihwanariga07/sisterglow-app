@@ -1,77 +1,68 @@
-
 @extends('layout.guest')
-
-@section('title', 'Register')
+@section('title','Register | Cuba Admin')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center align-items-center min-vh-100">
-        <div class="col-md-6">
-            <div class="card shadow border-0">
-                <div class="card-header bg-success text-white text-center">
-                    <h4 class="mb-0">{{ __('Register Account') }}</h4>
-                </div>
-                <div class="card-body p-4">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+<div class="container-fluid p-0">
+  <div class="row m-0">
+    <div class="col-12 p-0">
+      <div class="login-card login-dark">
+        <div>
 
-                        {{-- Name --}}
-                        <div class="mb-3">
-                            <label for="name" class="form-label">{{ __('Name') }}</label>
-                            <input id="name" type="text"
-                                   class="form-control @error('name') is-invalid @enderror"
-                                   name="name" value="{{ old('name') }}" required autofocus>
-                            @error('name')
-                                <div class="text-danger small mt-1">{{ $message }}</div>
-                            @enderror
-                        </div>
+          <div class="text-center mb-4">
+            <a class="logo" href="{{ url('/') }}">
+              <img class="img-fluid for-light" src="{{ asset('assets/images/logo/logo.png') }}">
+              <img class="img-fluid for-dark"  src="{{ asset('assets/images/logo/logo_dark.png') }}">
+            </a>
+          </div>
 
-                        {{-- Email --}}
-                        <div class="mb-3">
-                            <label for="email" class="form-label">{{ __('Email Address') }}</label>
-                            <input id="email" type="email"
-                                   class="form-control @error('email') is-invalid @enderror"
-                                   name="email" value="{{ old('email') }}" required>
-                            @error('email')
-                                <div class="text-danger small mt-1">{{ $message }}</div>
-                            @enderror
-                        </div>
+          <div class="login-main">
+            <form class="theme-form" method="POST" action="{{ route('register') }}">
+              @csrf
+              <h4>Create your account</h4>
+              <p>Enter your personal details to register</p>
 
-                        {{-- Password --}}
-                        <div class="mb-3">
-                            <label for="password" class="form-label">{{ __('Password') }}</label>
-                            <input id="password" type="password"
-                                   class="form-control @error('password') is-invalid @enderror"
-                                   name="password" required>
-                            @error('password')
-                                <div class="text-danger small mt-1">{{ $message }}</div>
-                            @enderror
-                        </div>
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name"
+                       class="form-control @error('name') is-invalid @enderror"
+                       value="{{ old('name') }}" required autofocus>
+                @error('name') <small class="text-danger">{{ $message }}</small> @enderror
+              </div>
 
-                        {{-- Confirm Password --}}
-                        <div class="mb-3">
-                            <label for="password-confirm" class="form-label">{{ __('Confirm Password') }}</label>
-                            <input id="password-confirm" type="password"
-                                   class="form-control" name="password_confirmation" required>
-                        </div>
+              <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" name="email"
+                       class="form-control @error('email') is-invalid @enderror"
+                       value="{{ old('email') }}" required>
+                @error('email') <small class="text-danger">{{ $message }}</small> @enderror
+              </div>
 
-                        {{-- Submit --}}
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-success">
-                                {{ __('Register') }}
-                            </button>
-                        </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password"
+                       class="form-control @error('password') is-invalid @enderror"
+                       required>
+                @error('password') <small class="text-danger">{{ $message }}</small> @enderror
+              </div>
 
-                        {{-- Login link --}}
-                        <div class="text-center mt-3">
-                            <a href="{{ route('login') }}" class="text-decoration-none">
-                                {{ __('Already have an account? Login') }}
-                            </a>
-                        </div>
-                    </form>
-                </div>
-            </div>
+              <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" name="password_confirmation" class="form-control" required>
+              </div>
+
+              <div class="form-group">
+                <button class="btn btn-primary btn-block w-100" type="submit">Register</button>
+              </div>
+
+              <p class="mt-2 mb-0 text-center">
+                Already have an account?<a class="ms-2" href="{{ route('login') }}">Sign in</a>
+              </p>
+            </form>
+          </div>
+
         </div>
+      </div>
     </div>
+  </div>
 </div>
 @endsection
