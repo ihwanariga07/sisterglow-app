@@ -2,18 +2,26 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-Route::get('/', function () {
-    return redirect('/login');
-});
+use App\Http\Controllers\AdminController;
 
+/* ---------- Akar ---------- */
+Route::redirect('/', '/login');
 
+/* ---------- Auth scaffold ---------- */
 Auth::routes();
 
-Route::get('/home', function () {
-    return view('home');
-});
-Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-Route::get('admin', function () {
-    return view('admin.dashboard');
-});
+/* ---------- Area setelah login ---------- */
+Route::middleware('auth')->group(function () {
 
+    // Halaman Home (jika masih ingin dipakai)
+    Route::view('/home', 'home')->name('home');
+
+    // Semua URL admin diawali /admin
+    Route::prefix('admin')->name('admin.')->group(function () {
+        // Controller dashboard
+        Route::get('/dashboard', [AdminController::class, 'dashboard'])
+              ->name('dashboard');
+
+        // Tambah route admin lain di sini…
+    });
+});
