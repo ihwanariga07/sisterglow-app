@@ -10,19 +10,18 @@
 
           <div class="text-center mb-4">
             <a class="logo" href="{{ url('/') }}">
-              <img class="img-fluid for-light" src="{{ asset('assets/images/logo/logo.png') }}">
-              <img class="img-fluid for-dark"  src="{{ asset('assets/images/logo/logo_dark.png') }}">
+              <img class="img-fluid for-dark"  src="{{ asset('assets/images/logo/logosister.png') }}">
             </a>
           </div>
 
           <div class="login-main">
             <form class="theme-form" method="POST" action="{{ route('login') }}">
               @csrf
-              <h4>Sign in to account</h4>
-              <p>Enter your email &amp; password to login</p>
+              <h4>Masukkan akun</h4>
+              <p>Masukkan email &amp; kata sandi anda untuk masuk</p>
 
               <div class="form-group">
-                <label>Email Address</label>
+                <label>Alamat Email</label>
                 <input type="email" name="email"
                        class="form-control @error('email') is-invalid @enderror"
                        value="{{ old('email') }}" required autofocus>
@@ -30,7 +29,7 @@
               </div>
 
               <div class="form-group">
-                <label>Password</label>
+                <label>Kata sandi</label>
                 <div class="form-input position-relative">
                   <input type="password" name="password"
                          class="form-control @error('password') is-invalid @enderror"
@@ -45,15 +44,15 @@
                   <input id="remember_me" type="checkbox" name="remember"
                          class="checkbox-primary form-check-input"
                          {{ old('remember') ? 'checked' : '' }}>
-                  <label class="text-muted form-check-label" for="remember_me">Remember password</label>
+                  <label class="text-muted form-check-label" for="remember_me">Ingat kata sandi</label>
                 </div>
-                <a class="link" href="{{ route('password.request') }}">Forgot password?</a>
+                <a class="link" href="{{ route('password.request') }}">Lupa sandi?</a>
                 <div class="text-end">
-                  <button class="btn btn-primary btn-block w-100 mt-3" type="submit">Sign in</button>
+                  <button class="btn btn-primary btn-block w-100 mt-3" type="submit">Masuk</button>
                 </div>
               </div>
 
-              <h6 class="text-muted mt-4 or">Or Sign in with</h6>
+              <h6 class="text-muted mt-4 or">Atau masuk dengan</h6>
               <div class="social mt-4">
                 <div class="btn-showcase">
                   <a class="btn btn-light" href="#"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -64,7 +63,7 @@
               </div>
 
               <p class="mt-4 mb-0 text-center">
-                Don't have account?<a class="ms-2" href="{{ route('register') }}">Create Account</a>
+                Tidak punya akun?<a class="ms-2" href="{{ route('register') }}">Buat Akun</a>
               </p>
             </form>
           </div>
