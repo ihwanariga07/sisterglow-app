@@ -1,5 +1,5 @@
 @extends('layout.guest')
-@section('title','Login | Cuba Admin')
+@section('title','Login')
 
 @section('content')
 <div class="container-fluid p-0">
