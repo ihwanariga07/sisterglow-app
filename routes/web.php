@@ -2,26 +2,37 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\AdminController;
-
+// use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\DashboardController;
 /* ---------- Akar ---------- */
 Route::redirect('/', '/login');
 
 /* ---------- Auth scaffold ---------- */
 Auth::routes();
 
+// Route::get('/cektemplate', function () {
+//     return view('layouts.template');
+// });
+
 /* ---------- Area setelah login ---------- */
 Route::middleware('auth')->group(function () {
 
-    // Halaman Home (jika masih ingin dipakai)
-    Route::view('/home', 'home')->name('home');
-
-    // Semua URL admin diawali /admin
-    Route::prefix('admin')->name('admin.')->group(function () {
-        // Controller dashboard
-        Route::get('/dashboard', [AdminController::class, 'dashboard'])
-              ->name('dashboard');
-
-        // Tambah route admin lain di sini…
-    });
+    Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 });
+
+// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::get('/costumer', [costumersController::class, 'index']);
+
+
+
+
+
+
+
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+// });
+
+    });

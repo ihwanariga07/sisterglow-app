@@ -1,3 +1,4 @@
+
 @extends('layouts.app')           {{-- sidebar + header Cuba --}}
 @section('title','Dashboard')
 
