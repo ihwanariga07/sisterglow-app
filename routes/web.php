@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-// use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\BookingController;
+
 /* ---------- Akar ---------- */
 Route::redirect('/', '/login');
 
@@ -21,9 +22,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 });
 
-// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Route::get('/costumer', [costumersController::class, 'index']);
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+    Route::get('/booking', [BookingController::class, 'index'])->name('admin.booking.index');
+});
 
 
 
