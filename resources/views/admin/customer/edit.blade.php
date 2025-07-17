@@ -1,27 +1,36 @@
-<!-- 
-// resources/views/admin/customer/edit.blade.php
+<!-- resources/views/admin/customer/edit.blade.php -->
 @extends('layouts.app')
 
 @section('title', 'Edit Customer')
 
 @section('content')
+<style>
+    .form-control {
+        color: white !important;
+        background-color: #343a40 !important; /* opsional biar input juga gelap */
+    }
+    label {
+        color: white;
+    }
+</style>
+
 <div class="container-fluid">
-    <h3>Edit Customer</h3>
+    <h3 class="text-white">Edit Customer</h3>
 
     <form action="{{ route('customer.update', $customer->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="mb-3">
             <label>Nama</label>
-            <input type="text" name="nama" class="form-control text-white" value="{{ $customer->nama }}" required>
+            <input type="text" name="nama" class="form-control" value="{{ $customer->nama }}" required>
         </div>
         <div class="mb-3">
             <label>No HP</label>
-            <input type="text" name="no_hp" class="form-control text-white" value="{{ $customer->no_hp }}" required>
+            <input type="text" name="no_hp" class="form-control" value="{{ $customer->no_hp }}" required>
         </div>
         <div class="mb-3">
             <label>Email</label>
-            <input type="email" name="email" class="form-control text-white" value="{{ $customer->email }}">
+            <input type="email" name="email" class="form-control" value="{{ $customer->email }}">
         </div>
         <div class="mb-3">
             <label>Foto</label>
@@ -34,4 +43,4 @@
         <a href="{{ route('customer.index') }}" class="btn btn-secondary">Kembali</a>
     </form>
 </div>
-@endsection -->
+@endsection

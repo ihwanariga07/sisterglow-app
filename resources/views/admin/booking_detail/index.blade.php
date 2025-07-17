@@ -4,6 +4,28 @@
 @section('title', 'Data Booking Detail')
 
 @section('content')
+<style>
+    .table {
+        background-color: #1e1e2d !important;
+        color: white !important;
+    }
+    .table th, .table td {
+        color: white !important;
+        vertical-align: middle;
+    }
+    label, h1 {
+        color: white;
+    }
+    .container {
+        background-color: #2c2c3a;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .btn {
+        margin: 2px;
+    }
+</style>
+
 <div class="container">
     <h1 class="mb-4">Daftar Booking Detail</h1>
 

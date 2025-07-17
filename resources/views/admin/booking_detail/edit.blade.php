@@ -4,6 +4,29 @@
 @section('title', 'Edit Booking Detail')
 
 @section('content')
+<style>
+    .form-control {
+        background-color: #1e1e2d;
+        color: white;
+        border: 1px solid #444;
+    }
+    .form-control:focus {
+        background-color: #1e1e2d;
+        color: white;
+    }
+    label, h1 {
+        color: white;
+    }
+    .container {
+        background-color: #2c2c3a;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .btn {
+        margin: 2px;
+    }
+</style>
+
 <div class="container">
     <h1 class="mb-4">Edit Booking Detail</h1>
 

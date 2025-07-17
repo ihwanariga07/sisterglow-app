@@ -3,6 +3,17 @@
 @section('title', 'Tambah Booking')
 
 @section('content')
+<style>
+    .form-control, .form-select {
+        background-color: #1e1e2d !important; /* Warna gelap */
+        color: white !important;             /* Teks putih */
+        border-color: #444 !important;
+    }
+    label {
+        color: white;
+    }
+</style>
+
 <div class="container-fluid">
     <h3>Tambah Booking</h3>
 
