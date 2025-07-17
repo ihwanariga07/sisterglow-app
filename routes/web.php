@@ -35,11 +35,6 @@ Route::prefix('admin')->group(function () {
 
 
 
-
-
-
-
-
 // Route::prefix('admin')->middleware(['auth'])->group(function () {
 //     Route::resource('booking', BookingController::class);
 // });
