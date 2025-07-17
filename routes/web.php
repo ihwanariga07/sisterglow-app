@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 });
 
+Route::resource('/admin/layanan', LayananController::class)->names('layanan');
 
 
 
