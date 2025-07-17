@@ -12,9 +12,10 @@ class BookingDetailController extends Controller
 {
     public function index()
     {
-        $details = BookingDetail::with(['booking.customer', 'layanan'])->latest()->get();
-        return view('admin.booking_detail.index', compact('details'));
+        $bookingDetails = BookingDetail::with(['booking.customer', 'layanan'])->latest()->get();
+        return view('admin.booking_detail.index', compact('bookingDetails'));
     }
+
 
     public function create()
     {
@@ -28,28 +29,29 @@ class BookingDetailController extends Controller
         $request->validate([
             'booking_id' => 'required|exists:bookings,id',
             'layanan_id' => 'required|exists:layanans,id',
-            'qty'        => 'required|integer|min:1',
+            'jumlah'     => 'required|integer|min:1',
             'harga'      => 'required|numeric|min:0',
         ]);
-
-        $subtotal = $request->qty * $request->harga;
 
         BookingDetail::create([
             'booking_id' => $request->booking_id,
             'layanan_id' => $request->layanan_id,
-            'qty'        => $request->qty,
+            'jumlah'     => $request->jumlah,
             'harga'      => $request->harga,
-            'subtotal'   => $subtotal,
         ]);
 
-        return redirect()->route('booking-detail.index')->with('success', 'Booking Detail berhasil ditambahkan.');
+        return redirect()->route('booking_detail.index')->with('success', 'Booking Detail berhasil ditambahkan.');
     }
 
     public function edit(BookingDetail $booking_detail)
     {
         $bookings = Booking::with('customer')->get();
         $layanans = Layanan::all();
-        return view('admin.booking_detail.edit', compact('booking_detail', 'bookings', 'layanans'));
+        return view('admin.booking_detail.edit', [
+            'bookingDetail' => $booking_detail,
+            'bookings' => $bookings,
+            'layanans' => $layanans
+        ]);
     }
 
     public function update(Request $request, BookingDetail $booking_detail)
@@ -57,26 +59,24 @@ class BookingDetailController extends Controller
         $request->validate([
             'booking_id' => 'required|exists:bookings,id',
             'layanan_id' => 'required|exists:layanans,id',
-            'qty'        => 'required|integer|min:1',
+            'jumlah'     => 'required|integer|min:1',
             'harga'      => 'required|numeric|min:0',
         ]);
-
-        $subtotal = $request->qty * $request->harga;
 
         $booking_detail->update([
             'booking_id' => $request->booking_id,
             'layanan_id' => $request->layanan_id,
-            'qty'        => $request->qty,
+            'jumlah'     => $request->jumlah,
             'harga'      => $request->harga,
-            'subtotal'   => $subtotal,
         ]);
 
-        return redirect()->route('booking-detail.index')->with('success', 'Booking Detail berhasil diperbarui.');
+        return redirect()->route('booking_detail.index')->with('success', 'Booking Detail berhasil diperbarui.');
     }
 
     public function destroy(BookingDetail $booking_detail)
     {
         $booking_detail->delete();
-        return redirect()->route('booking-detail.index')->with('success', 'Booking Detail berhasil dihapus.');
+        return redirect()->route('booking_detail.index')->with('success', 'Booking Detail berhasil dihapus.');
     }
+    
 }

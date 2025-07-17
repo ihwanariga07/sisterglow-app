@@ -1,4 +1,4 @@
-{{-- resources/views/admin/booking_detail/edit.blade.php --}}
+<!-- {{-- resources/views/admin/booking_detail/edit.blade.php --}}
 @extends('layouts.app')
 
 @section('title', 'Edit Booking Detail')
@@ -75,4 +75,4 @@
         <a href="{{ route('booking_detail.index') }}" class="btn btn-secondary">Kembali</a>
     </form>
 </div>
-@endsection
+@endsection -->

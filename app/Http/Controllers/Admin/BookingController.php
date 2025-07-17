@@ -27,11 +27,17 @@ class BookingController extends Controller
             'customer_id'   => 'required|exists:customers,id',
             'booking_date'  => 'required|date',
             'booking_time'  => 'required',
-            'total_harga'   => 'required|numeric',
+            'total_harga'   => 'required|numeric|min:0',
             'status'        => 'required|string',
         ]);
 
-        Booking::create($request->all());
+        Booking::create([
+            'customer_id'   => $request->customer_id,
+            'booking_date'  => $request->booking_date,
+            'booking_time'  => $request->booking_time,
+            'total_harga'   => $request->total_harga,
+            'status'        => $request->status,
+        ]);
 
         return redirect()->route('booking.index')->with('success', 'Booking berhasil ditambahkan.');
     }
@@ -48,11 +54,17 @@ class BookingController extends Controller
             'customer_id'   => 'required|exists:customers,id',
             'booking_date'  => 'required|date',
             'booking_time'  => 'required',
-            'total_harga'   => 'required|numeric',
+            'total_harga'   => 'required|numeric|min:0',
             'status'        => 'required|string',
         ]);
 
-        $booking->update($request->all());
+        $booking->update([
+            'customer_id'   => $request->customer_id,
+            'booking_date'  => $request->booking_date,
+            'booking_time'  => $request->booking_time,
+            'total_harga'   => $request->total_harga,
+            'status'        => $request->status,
+        ]);
 
         return redirect()->route('booking.index')->with('success', 'Booking berhasil diperbarui.');
     }

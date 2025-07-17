@@ -11,6 +11,7 @@ class BookingDetail extends Model
         'layanan_id',
         'jumlah',
         'harga',
+        'subtotal', // pastikan ini juga ada di DB
     ];
 
     public function booking()
@@ -21,5 +22,18 @@ class BookingDetail extends Model
     public function layanan()
     {
         return $this->belongsTo(Layanan::class);
+    }
+    
+
+    /**
+     * Hitung subtotal otomatis jika tidak diisi manual
+     */
+    public function getSubtotalAttribute($value)
+    {
+        if (!is_null($value)) {
+            return $value;
+        }
+
+        return $this->harga * $this->jumlah;
     }
 }

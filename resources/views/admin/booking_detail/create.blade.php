@@ -1,4 +1,4 @@
-@extends('layouts.app')
+<!-- @extends('layouts.app')
 
 @section('title', 'Tambah Booking Detail')
 
@@ -129,4 +129,4 @@
         });
     });
 </script>
-@endpush
+@endpush -->

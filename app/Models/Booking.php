@@ -18,7 +18,7 @@ class Booking extends Model
     ];
 
     /**
-     * Relasi ke customer (banyak booking dimiliki oleh satu customer)
+     * Relasi: Satu booking dimiliki oleh satu customer.
      */
     public function customer()
     {
@@ -26,7 +26,7 @@ class Booking extends Model
     }
 
     /**
-     * Relasi ke booking_details (satu booking punya banyak detail)
+     * Relasi: Satu booking punya banyak detail.
      */
     public function bookingDetails()
     {
@@ -34,10 +34,18 @@ class Booking extends Model
     }
 
     /**
-     * (Opsional) Relasi many-to-many ke layanan lewat booking_details
+     * Relasi many-to-many ke layanan lewat booking_details.
      */
     public function layanans()
     {
         return $this->belongsToMany(Layanan::class, 'booking_details');
+    }
+
+    /**
+     * (Opsional) Total harga otomatis dari detail.
+     */
+    public function getTotalHargaAttribute()
+    {
+        return $this->bookingDetails->sum('subtotal');
     }
 }
