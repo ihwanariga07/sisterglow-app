@@ -67,7 +67,7 @@
                             <li><a href="{{ url('views/admin/booking/index.blade.php') }}">Admin</a></li>
                             <li><a href="{{ route('layanan.index') }}">Layanan</a></li>
                             <li><a href="{{ route('customer.index') }}">Customer</a></li>
-                             <li><a href="{{ url('dashboard/online-course') }}">Booking</a></li>
+                            <li><a href="{{ route('booking.index') }}">Booking</a></li>
                               <li><a href="{{ url('dashboard/online-course') }}">Booking Detail</a></li>
                             <!-- Tambahkan menu dashboard lainnya di sini -->
                         </ul>

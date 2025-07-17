@@ -30,7 +30,10 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::resource('customer', \App\Http\Controllers\Admin\CustomerController::class);
 });
 
-
+// Route Booking
+Route::prefix('admin')->group(function () {
+    Route::resource('booking', BookingController::class);
+});
 
 
 
