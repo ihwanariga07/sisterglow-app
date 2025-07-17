@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LayananController;
 use App\Http\Controllers\Admin\CostumerController;
+use App\Http\Controllers\Admin\BookingController;
+use App\Http\Controllers\Admin\BookingDetailController;
 /* ---------- Akar ---------- */
 Route::redirect('/', '/login');
 
@@ -36,8 +38,9 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
 });
 
 
-
-
+Route::prefix('admin')->group(function () {
+    Route::resource('booking_detail', BookingDetailController::class);
+});
 
 
 
