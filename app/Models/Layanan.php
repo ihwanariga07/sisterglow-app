@@ -2,16 +2,20 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Layanan extends Model
 {
-    protected $fillable = [
-        'nama_layanan', 'harga'
-    ];
+    use HasFactory;
 
-    public function bookingDetail()
-    {
-        return $this->hasMany(BookingDetail::class);
-    }
+    // Nama tabel jika tidak mengikuti konvensi jamak ('layanans')
+    protected $table = 'layanans';
+
+    // Kolom yang boleh diisi (mass assignment)
+    protected $fillable = [
+        'nama_layanan',
+        'deskripsi',
+        'harga',
+    ];
 }

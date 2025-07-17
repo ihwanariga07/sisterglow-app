@@ -23,20 +23,35 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::prefix('admin')->middleware(['auth'])->group(function () {
-    Route::resource('booking', BookingController::class);
-});
-
-Route::prefix('admin')->middleware(['auth'])->group(function () {
-    Route::get('/booking', [BookingController::class, 'index'])->name('admin.booking.index');
-});
-
-Route::get('/booking', [BookingController::class, 'create']);
-Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+// Route::prefix('admin')->middleware(['auth'])->group(function () {
+//     Route::resource('booking', BookingController::class);
+// });
+
+// Route::prefix('admin')->middleware(['auth'])->group(function () {
+//     Route::get('/booking', [BookingController::class, 'index'])->name('admin.booking.index');
+// });
+
+// Route::get('/booking', [BookingController::class, 'create']);
+// Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 
     });
+
+
+
+
+
