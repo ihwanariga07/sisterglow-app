@@ -65,7 +65,7 @@
                             <!-- <li><a class="lan-4" href="{{ url('admin') }}">Admin</a></li>
                             <li><a class="lan-5" href="{{ url('dashboard/layanan') }}">Layanan</a></li> -->
                             <li><a href="{{ url('views/admin/booking/index.blade.php') }}">Admin</a></li>
-                             <li><a href="{{ url('dashboard/online-course') }}">Layanan</a></li>
+                            <li><a href="{{ route('layanan.index') }}">Layanan</a></li>
                             <li><a href="{{ url('dashboard/online-course') }}">Costumer</a></li>
                              <li><a href="{{ url('dashboard/online-course') }}">Booking</a></li>
                               <li><a href="{{ url('dashboard/online-course') }}">Booking Detail</a></li>

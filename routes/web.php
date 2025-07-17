@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\BookingController;
+use App\Http\Controllers\Admin\LayananController;
 
 /* ---------- Akar ---------- */
 Route::redirect('/', '/login');
@@ -22,8 +22,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 });
 
-Route::resource('/admin/layanan', LayananController::class)->names('layanan');
-
+Route::prefix('admin')->group(function () {
+    Route::resource('layanan', LayananController::class);
+});
 
 
 
