@@ -1,14 +1,14 @@
-
-// resources/views/admin/costumer/create.blade.php
+<!-- 
+// resources/views/admin/customer/create.blade.php
 @extends('layouts.app')
 
-@section('title', 'Tambah Costumer')
+@section('title', 'Tambah Customer')
 
 @section('content')
 <div class="container-fluid">
-    <h3>Tambah Costumer</h3>
+    <h3>Tambah Customer</h3>
 
-    <form action="{{ route('costumer.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('customer.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label>Nama</label>
@@ -27,8 +27,8 @@
             <input type="file" name="foto" class="form-control">
         </div>
         <button class="btn btn-success">Simpan</button>
-        <a href="{{ route('costumer.index') }}" class="btn btn-secondary">Kembali</a>
+        <a href="{{ route('customer.index') }}" class="btn btn-secondary">Kembali</a>
     </form>
 </div>
 @endsection
-
+ -->
