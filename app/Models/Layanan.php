@@ -9,13 +9,27 @@ class Layanan extends Model
 {
     use HasFactory;
 
-    // Nama tabel jika tidak mengikuti konvensi jamak ('layanans')
     protected $table = 'layanans';
 
-    // Kolom yang boleh diisi (mass assignment)
     protected $fillable = [
         'nama_layanan',
         'deskripsi',
         'harga',
     ];
+
+    /**
+     * Relasi ke booking_details (satu layanan bisa ada di banyak detail)
+     */
+    public function bookingDetails()
+    {
+        return $this->hasMany(BookingDetail::class);
+    }
+
+    /**
+     * (Opsional) Relasi many-to-many ke booking melalui booking_details
+     */
+    public function bookings()
+    {
+        return $this->belongsToMany(Booking::class, 'booking_details');
+    }
 }

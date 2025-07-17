@@ -17,8 +17,27 @@ class Booking extends Model
         'status',
     ];
 
+    /**
+     * Relasi ke customer (banyak booking dimiliki oleh satu customer)
+     */
     public function customer()
     {
         return $this->belongsTo(Customer::class);
+    }
+
+    /**
+     * Relasi ke booking_details (satu booking punya banyak detail)
+     */
+    public function bookingDetails()
+    {
+        return $this->hasMany(BookingDetail::class);
+    }
+
+    /**
+     * (Opsional) Relasi many-to-many ke layanan lewat booking_details
+     */
+    public function layanans()
+    {
+        return $this->belongsToMany(Layanan::class, 'booking_details');
     }
 }
