@@ -10,12 +10,21 @@ use Illuminate\Http\Request;
 
 class BookingDetailController extends Controller
 {
-    public function index()
-    {
-        $bookingDetails = BookingDetail::with(['booking.customer', 'layanan'])->latest()->get();
-        return view('admin.booking_detail.index', compact('bookingDetails'));
-    }
+    // public function index()
+    // {
+    //     $bookingDetails = BookingDetail::with(['booking.customer', 'layanan'])->latest()->get();
+    //     return view('admin.booking_detail.index', compact('bookingDetails'));
+    // }
 
+        public function index()
+{
+    $bookingDetails = BookingDetail::with([
+        'booking.customer', // relasi ke customer lewat booking
+        'layanan'           // relasi langsung ke layanan
+    ])->get();
+
+    return view('admin.booking_detail.index', compact('bookingDetails'));
+}
 
     public function create()
     {

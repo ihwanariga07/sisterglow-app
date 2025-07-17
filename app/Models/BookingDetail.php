@@ -23,7 +23,7 @@ class BookingDetail extends Model
     {
         return $this->belongsTo(Layanan::class);
     }
-    
+
 
     /**
      * Hitung subtotal otomatis jika tidak diisi manual

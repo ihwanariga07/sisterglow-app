@@ -33,23 +33,23 @@
                     @forelse ($bookingDetails as $detail)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $detail->booking->customer->nama }}</td>
+                            <td>{{ $detail->booking->customer->nama ?? '-' }}</td>
                             <td>
-                                @if($detail->booking->customer->foto)
+                                @if(optional($detail->booking->customer)->foto)
                                     <img src="{{ asset('storage/' . $detail->booking->customer->foto) }}" alt="foto" width="50" height="50">
                                 @else
                                     <span class="text-muted">-</span>
                                 @endif
                             </td>
-                            <td>{{ $detail->booking->customer->no_hp }}</td>
-                            <td>{{ $detail->booking->customer->email }}</td>
-                            <td>{{ $detail->booking->booking_date }}</td>
-                            <td>{{ $detail->booking->booking_time }}</td>
-                            <td>{{ $detail->booking->status }}</td>
-                            <td>{{ $detail->layanan->nama }}</td>
-                            <td>Rp{{ number_format($detail->harga, 0, ',', '.') }}</td>
-                            <td>{{ $detail->jumlah }}</td>
-                            <td>Rp{{ number_format($detail->subtotal, 0, ',', '.') }}</td>
+                            <td>{{ $detail->booking->customer->no_hp ?? '-' }}</td>
+                            <td>{{ $detail->booking->customer->email ?? '-' }}</td>
+                            <td>{{ $detail->booking->booking_date ?? '-' }}</td>
+                            <td>{{ $detail->booking->booking_time ?? '-' }}</td>
+                            <td>{{ $detail->booking->status ?? '-' }}</td>
+                            <td>{{ $detail->layanan->nama ?? '-' }}</td>
+                            <td>Rp{{ number_format($detail->harga ?? 0, 0, ',', '.') }}</td>
+                            <td>{{ $detail->jumlah ?? '-' }}</td>
+                            <td>Rp{{ number_format($detail->subtotal ?? 0, 0, ',', '.') }}</td>
                         </tr>
                     @empty
                         <tr>

@@ -20,11 +20,10 @@ class Booking extends Model
     /**
      * Relasi: Satu booking dimiliki oleh satu customer.
      */
-    public function customer()
-    {
-        return $this->belongsTo(Customer::class);
-    }
-
+public function customer()
+{
+    return $this->belongsTo(Customer::class);
+}
     /**
      * Relasi: Satu booking punya banyak detail.
      */
