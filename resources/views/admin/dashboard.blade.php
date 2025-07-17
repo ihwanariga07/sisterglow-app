@@ -4,6 +4,6 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <h1>Selamat datang di dashboard, Ihwan!</h1>
+    
 @endsection
  
