@@ -8,7 +8,7 @@ return new class extends Migration {
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('costumer_id')->constrained()->onDelete('cascade');
+            $table->foreignId('customer_id')->constrained()->onDelete('cascade');
             $table->date('booking_date');
             $table->time('booking_time');
             $table->decimal('total_harga', 10, 2)->default(0);

@@ -10,15 +10,15 @@ class Booking extends Model
     use HasFactory;
 
     protected $fillable = [
-        'costumer_id',
+        'customer_id',
         'booking_date',
         'booking_time',
         'total_harga',
         'status',
     ];
 
-    public function costumer()
+    public function customer()
     {
-        return $this->belongsTo(Costumer::class);
+        return $this->belongsTo(Customer::class);
     }
 }
