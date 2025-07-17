@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LayananController;
-
+use App\Http\Controllers\Admin\CostumerController;
 /* ---------- Akar ---------- */
 Route::redirect('/', '/login');
 
@@ -26,6 +26,9 @@ Route::prefix('admin')->group(function () {
     Route::resource('layanan', LayananController::class);
 });
 
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+    Route::resource('customer', \App\Http\Controllers\Admin\CustomerController::class);
+});
 
 
 
