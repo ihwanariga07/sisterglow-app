@@ -11,6 +11,7 @@ return new class extends Migration {
             $table->foreignId('customer_id')->constrained()->onDelete('cascade');
             $table->date('booking_date');
             $table->time('booking_time');
+            $table->foreignId('layanan_id')->constrained()->onDelete('cascade');
             $table->decimal('total_harga', 10, 2)->default(0);
             $table->string('status')->default('pending');
             $table->timestamps();

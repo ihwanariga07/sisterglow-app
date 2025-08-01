@@ -47,6 +47,7 @@
                     <th>Customer</th>
                     <th>Tanggal Booking</th>
                     <th>Waktu Booking</th>
+              
                     <th>Total Harga</th>
                     <th>Status</th>
                     <th>Aksi</th>

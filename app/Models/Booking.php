@@ -13,6 +13,7 @@ class Booking extends Model
         'customer_id',
         'booking_date',
         'booking_time',
+        'layanan_id',
         'total_harga',
         'status',
     ];

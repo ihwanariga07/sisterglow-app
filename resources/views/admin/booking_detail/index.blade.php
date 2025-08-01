@@ -3,8 +3,37 @@
 @section('title', 'Data Booking Detail')
 
 @section('content')
+<style>
+    .container-fluid {
+        background-color: #2c2c3a;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    h3 {
+        color: white;
+    }
+
+    .table-dark th,
+    .table-dark td {
+        color: white !important;
+        vertical-align: middle;
+    }
+
+    .alert-success {
+        background-color: #28a745;
+        color: white;
+        border: none;
+    }
+
+    img {
+        border-radius: 50%;
+        object-fit: cover;
+    }
+</style>
+
 <div class="container-fluid">
-    <h1 class="mb-4">Data Booking Detail</h1>
+    <h3 class="mb-4">Data Booking Detail</h3>
 
     @if (session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -12,8 +41,8 @@
 
     <div class="card">
         <div class="card-body table-responsive">
-            <table class="table table-bordered table-striped">
-                <thead class="thead-dark">
+            <table class="table table-bordered table-dark">
+                <thead>
                     <tr>
                         <th>No</th>
                         <th>Nama Customer</th>
@@ -45,7 +74,7 @@
                             <td>{{ $detail->booking->customer->email ?? '-' }}</td>
                             <td>{{ $detail->booking->booking_date ?? '-' }}</td>
                             <td>{{ $detail->booking->booking_time ?? '-' }}</td>
-                            <td>{{ $detail->booking->status ?? '-' }}</td>
+                            <td>{{ ucfirst($detail->booking->status) ?? '-' }}</td>
                             <td>{{ $detail->layanan->nama ?? '-' }}</td>
                             <td>Rp{{ number_format($detail->harga ?? 0, 0, ',', '.') }}</td>
                             <td>{{ $detail->jumlah ?? '-' }}</td>

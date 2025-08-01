@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\LayananController;
 use App\Http\Controllers\Admin\CostumerController;
 use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Admin\BookingDetailController;
+
 /* ---------- Akar ---------- */
 Route::redirect('/', '/login');
 
@@ -38,12 +39,12 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
 });
 
 
+Route::get('/admin/booking_detail', [BookingDetailController::class, 'index'])->name('booking_detail.index');
+
+
 // Route::prefix('admin')->group(function () {
 //     Route::resource('booking_detail', \App\Http\Controllers\Admin\BookingDetailController::class);
 // });
-
-Route::get('/admin/booking_detail', [BookingDetailController::class, 'index'])->name('booking_detail.index');
-
 
 // Route::prefix('admin')->middleware(['auth'])->group(function () {
 //     Route::resource('booking', BookingController::class);

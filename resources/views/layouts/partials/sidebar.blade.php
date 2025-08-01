@@ -85,10 +85,11 @@
                             <span class="lan-6">Widgets</span>
                         </a>
                         <ul class="sidebar-submenu">
-                            <li><a href="{{ url('widgets/general') }}">General</a></li>
+                            <li><a href="{{ url('Admin/widgets/general') }}">General</a></li>
                             <li><a href="{{ url('widgets/chart') }}">Chart</a></li>
                         </ul>
                     </li>
+
 
                     <!-- E-commerce Menu -->
                     <li class="sidebar-list">

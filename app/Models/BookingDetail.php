@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -7,11 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class BookingDetail extends Model
 {
     protected $fillable = [
-        'booking_id',
-        'layanan_id',
-        'jumlah',
-        'harga',
-        'subtotal', // pastikan ini juga ada di DB
+        'booking_id', 'layanan_id', 'harga', 'jumlah', 'subtotal'
     ];
 
     public function booking()
@@ -22,18 +17,5 @@ class BookingDetail extends Model
     public function layanan()
     {
         return $this->belongsTo(Layanan::class);
-    }
-
-
-    /**
-     * Hitung subtotal otomatis jika tidak diisi manual
-     */
-    public function getSubtotalAttribute($value)
-    {
-        if (!is_null($value)) {
-            return $value;
-        }
-
-        return $this->harga * $this->jumlah;
     }
 }

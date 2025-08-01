@@ -30,6 +30,7 @@
                 @endforeach
             </select>
         </div>
+
         <div class="mb-3">
             <label>Tanggal Booking</label>
             <input type="date" name="booking_date" class="form-control" value="{{ $booking->booking_date }}" required>
@@ -40,7 +41,7 @@
         </div>
         <div class="mb-3">
             <label>Total Harga</label>
-            <input type="number" name="total_harga" class="form-control" value="{{ $booking->total_harga }}" required>
+            <input type="number" name="harga" class="form-control" value="{{ $booking->harga }}" required>
         </div>
         <div class="mb-3">
             <label>Status</label>
