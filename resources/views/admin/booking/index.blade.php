@@ -73,7 +73,7 @@
                         @if($booking->bookingDetails->isNotEmpty())
                             <ul>
                                 @foreach($booking->bookingDetails as $detail)
-                                    <li>{{ $detail->service->nama ?? '-' }} (Rp{{ number_format($detail->service->harga ?? 0, 0, ',', '.') }})</li>
+                                    <li>{{ $detail->layanan->nama ?? '-' }} (Rp{{ number_format($detail->layanan->harga ?? 0, 0, ',', '.') }})</li>
                                 @endforeach
                             </ul>
                         @else
