@@ -63,6 +63,7 @@
                     <td>Rp {{ number_format($booking->total_harga, 0, ',', '.') }}</td>
                     <td>{{ ucfirst($booking->status) }}</td>
                     <td>
+                        <a href="{{ route('booking.show', $booking->id) }}" class="btn btn-sm btn-info">Detail</a>
                         <a href="{{ route('booking.edit', $booking->id) }}" class="btn btn-warning btn-sm">Edit</a>
                         <form action="{{ route('booking.destroy', $booking->id) }}" method="POST" style="display:inline-block">
                             @csrf
