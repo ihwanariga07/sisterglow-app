@@ -64,6 +64,7 @@
                         <ul class="sidebar-submenu">
                             <!-- <li><a class="lan-4" href="{{ url('admin') }}">Admin</a></li>
                             <li><a class="lan-5" href="{{ url('dashboard/layanan') }}">Layanan</a></li> -->
+                            <li><a href="{{ route('admin.dashboard') }}">Beranda</a></li>
                             <li><a href="{{ route('layanan.index') }}">Layanan</a></li>
                             <li><a href="{{ route('customer.index') }}">Customer</a></li>
                             <li><a href="{{ route('booking.index') }}">Booking</a></li>
