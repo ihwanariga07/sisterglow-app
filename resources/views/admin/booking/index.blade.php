@@ -14,7 +14,7 @@
         color: white;
     }
 
-    .table-dark th, 
+    .table-dark th,
     .table-dark td {
         color: white !important;
         vertical-align: middle;
@@ -30,13 +30,9 @@
         border: none;
     }
 
-    ul {
-        margin-bottom: 0;
-        padding-left: 1rem;
-    }
-
-    li {
-        font-size: 13px;
+    .badge {
+        font-size: 12px;
+        margin-bottom: 2px;
     }
 </style>
 
@@ -64,40 +60,36 @@
             </thead>
             <tbody>
                 @foreach ($bookings as $booking)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $booking->customer->nama }}</td>
-                    <td>{{ $booking->booking_date }}</td>
-                    <td>{{ $booking->booking_time }}</td>
-                    <td>
-                        @if($booking->bookingDetails->isNotEmpty())
-                            <ul>
-                                @foreach($booking->bookingDetails as $detail)
-                                    <li>{{ $detail->layanan->nama ?? '-' }} (Rp{{ number_format($detail->layanan->harga ?? 0, 0, ',', '.') }})</li>
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $booking->customer->nama ?? '-' }}</td>
+                        <td>{{ $booking->booking_date }}</td>
+                        <td>{{ $booking->booking_time }}</td>
+                        <td>
+                            @if($booking->bookingDetails->isNotEmpty())
+                                @foreach ($booking->bookingDetails as $detail)
+                                    <span class="badge bg-light-primary">
+                                        {{ $detail->layanan->nama ?? '-' }}
+                                    </span><br>
                                 @endforeach
-                            </ul>
-                        @else
-                            <span>-</span>
-                        @endif
-                    </td>
-                    <td>
-                        @if($booking->total_harga > 0)
-                            Rp {{ number_format($booking->total_harga, 0, ',', '.') }}
-                        @else
-                            Rp {{ number_format($booking->bookingDetails->sum(fn($d) => $d->service->harga ?? 0), 0, ',', '.') }}
-                        @endif
-                    </td>
-                    <td>{{ ucfirst($booking->status) }}</td>
-                    <td>
-                        <a href="{{ route('booking.show', $booking->id) }}" class="btn btn-sm btn-info">Detail</a>
-                        <a href="{{ route('booking.edit', $booking->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                        <form action="{{ route('booking.destroy', $booking->id) }}" method="POST" style="display:inline-block">
-                            @csrf
-                            @method('DELETE')
-                            <button onclick="return confirm('Yakin hapus booking ini?')" class="btn btn-danger btn-sm">Hapus</button>
-                        </form>
-                    </td>
-                </tr>
+                            @else
+                                <span>-</span>
+                            @endif
+                        </td>
+                        <td>
+                            Rp {{ number_format($booking->total_harga ?? 0, 0, ',', '.') }}
+                        </td>
+                        <td>{{ ucfirst($booking->status) }}</td>
+                        <td>
+                            <a href="{{ route('booking.show', $booking->id) }}" class="btn btn-sm btn-info">Detail</a>
+                            <a href="{{ route('booking.edit', $booking->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="{{ route('booking.destroy', $booking->id) }}" method="POST" style="display:inline-block">
+                                @csrf
+                                @method('DELETE')
+                                <button onclick="return confirm('Yakin hapus booking ini?')" class="btn btn-danger btn-sm">Hapus</button>
+                            </form>
+                        </td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>

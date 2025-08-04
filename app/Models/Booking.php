@@ -13,7 +13,6 @@ class Booking extends Model
         'customer_id',
         'booking_date',
         'booking_time',
-        'layanan_id',
         'total_harga',
         'status',
     ];
@@ -21,10 +20,11 @@ class Booking extends Model
     /**
      * Relasi: Satu booking dimiliki oleh satu customer.
      */
-public function customer()
-{
-    return $this->belongsTo(Customer::class);
-}
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
+
     /**
      * Relasi: Satu booking punya banyak detail.
      */
@@ -38,11 +38,12 @@ public function customer()
      */
     public function layanans()
     {
-        return $this->belongsToMany(Layanan::class, 'booking_details');
+        return $this->belongsToMany(Layanan::class, 'booking_details')
+                    ->withPivot(['harga', 'jumlah', 'subtotal']); // supaya bisa akses pivot info
     }
 
     /**
-     * (Opsional) Total harga otomatis dari detail.
+     * Total harga otomatis dari detail (akses pakai: $booking->total_harga)
      */
     public function getTotalHargaAttribute()
     {

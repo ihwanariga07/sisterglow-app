@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
 use App\Models\Customer;
+use App\Models\Layanan;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -18,7 +19,8 @@ class BookingController extends Controller
     public function create()
     {
         $customers = Customer::all();
-        return view('admin.booking.create', compact('customers'));
+        $layanans = Layanan::all(); // ✅ Tambah layanan
+        return view('admin.booking.create', compact('customers', 'layanans'));
     }
 
     public function store(Request $request)
@@ -44,14 +46,15 @@ class BookingController extends Controller
 
     public function show(Booking $booking)
     {
-        $booking->load(['customer', 'bookingDetails.service']); // pastikan relasi ini ada di model
+        $booking->load(['customer', 'bookingDetails.service']); // ✅ Pastikan relasi tersedia
         return view('admin.booking.show', compact('booking'));
     }
 
     public function edit(Booking $booking)
     {
         $customers = Customer::all();
-        return view('admin.booking.edit', compact('booking', 'customers'));
+        $layanans = Layanan::all(); // (Optional) jika edit layanan juga
+        return view('admin.booking.edit', compact('booking', 'customers', 'layanans'));
     }
 
     public function update(Request $request, Booking $booking)
