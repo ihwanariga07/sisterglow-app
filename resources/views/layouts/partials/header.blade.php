@@ -44,7 +44,9 @@
                     <h6 class="mb-0 f-w-400"><span class="font-primary">Jangan sampai ketinggalan </span><span class="f-light"> promo lulur whitening</span></h6><i class="icon-arrow-top-right f-light"></i>
                 </div>
                 <div class="d-flex h-100"><img src="{{ asset('assets/images/giftools.gif') }}" alt="gif">
-                    <h6 class="mb-0 f-w-400"><span class="f-light">harga special hanya 85k! </span></h6><a class="ms-1" href="https://1.envato.market/3GVzd" target="_blank">Booking Sekarang !</a>
+                    <h6 class="mb-0 f-w-400"><span class="f-light">harga special hanya 85k! </span></h6>
+<a class="ms-1" href="{{ route('booking.create') }}">Booking Sekarang!</a>
+
                 </div>
             </div>
         </div>

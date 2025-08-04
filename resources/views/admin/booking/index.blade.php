@@ -29,6 +29,15 @@
         color: white;
         border: none;
     }
+
+    ul {
+        margin-bottom: 0;
+        padding-left: 1rem;
+    }
+
+    li {
+        font-size: 13px;
+    }
 </style>
 
 <div class="container-fluid">
@@ -47,7 +56,7 @@
                     <th>Customer</th>
                     <th>Tanggal Booking</th>
                     <th>Waktu Booking</th>
-              
+                    <th>Layanan</th>
                     <th>Total Harga</th>
                     <th>Status</th>
                     <th>Aksi</th>
@@ -60,7 +69,24 @@
                     <td>{{ $booking->customer->nama }}</td>
                     <td>{{ $booking->booking_date }}</td>
                     <td>{{ $booking->booking_time }}</td>
-                    <td>Rp {{ number_format($booking->total_harga, 0, ',', '.') }}</td>
+                    <td>
+                        @if($booking->bookingDetails->isNotEmpty())
+                            <ul>
+                                @foreach($booking->bookingDetails as $detail)
+                                    <li>{{ $detail->service->nama ?? '-' }} (Rp{{ number_format($detail->service->harga ?? 0, 0, ',', '.') }})</li>
+                                @endforeach
+                            </ul>
+                        @else
+                            <span>-</span>
+                        @endif
+                    </td>
+                    <td>
+                        @if($booking->total_harga > 0)
+                            Rp {{ number_format($booking->total_harga, 0, ',', '.') }}
+                        @else
+                            Rp {{ number_format($booking->bookingDetails->sum(fn($d) => $d->service->harga ?? 0), 0, ',', '.') }}
+                        @endif
+                    </td>
                     <td>{{ ucfirst($booking->status) }}</td>
                     <td>
                         <a href="{{ route('booking.show', $booking->id) }}" class="btn btn-sm btn-info">Detail</a>
