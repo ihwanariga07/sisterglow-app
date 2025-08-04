@@ -42,6 +42,12 @@ class BookingController extends Controller
         return redirect()->route('booking.index')->with('success', 'Booking berhasil ditambahkan.');
     }
 
+    public function show(Booking $booking)
+    {
+        $booking->load(['customer', 'bookingDetails.service']); // pastikan relasi ini ada di model
+        return view('admin.booking.show', compact('booking'));
+    }
+
     public function edit(Booking $booking)
     {
         $customers = Customer::all();
