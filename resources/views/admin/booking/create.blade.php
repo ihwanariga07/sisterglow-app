@@ -64,7 +64,7 @@
                         <select name="layanan_id[]" class="form-control layanan-select" required onchange="updateHarga(this)">
                             <option value="">-- Pilih Layanan --</option>
                             @foreach ($layanans as $layanan)
-                                <option value="{{ $layanan->id }}" data-harga="{{ $layanan->harga }}">{{ $layanan->nama }}</option>
+                                <option value="{{ $layanan->id }}" data-harga="{{ $layanan->harga }}">{{ $layanan->nama_layanan }}</option>
                             @endforeach
                         </select>
                     </div>
