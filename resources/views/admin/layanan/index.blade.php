@@ -23,10 +23,28 @@
         </thead>
         <tbody>
             @forelse ($layanans as $layanan)
+                @php
+                    $limit = 50;
+                    $isLong = strlen($layanan->deskripsi) > $limit;
+                    $shortDesc = Str::limit($layanan->deskripsi, $limit);
+                @endphp
                 <tr>
                     <td class="text-white">{{ $loop->iteration }}</td>
                     <td class="text-white">{{ $layanan->nama_layanan }}</td>
-                    <td class="text-white">{{ $layanan->deskripsi }}</td>
+                    
+                    <td class="text-white text-start">
+                        <span id="short-desc-{{ $layanan->id }}">
+                            {{ $shortDesc }}
+                            @if($isLong)
+                                <a href="#" onclick="toggleDesc({{ $layanan->id }}); return false;" class="text-info">Selengkapnya</a>
+                            @endif
+                        </span>
+                        <span id="full-desc-{{ $layanan->id }}" style="display: none;">
+                            {{ $layanan->deskripsi }}
+                            <a href="#" onclick="toggleDesc({{ $layanan->id }}); return false;" class="text-warning">Tutup</a>
+                        </span>
+                    </td>
+
                     <td class="text-white">Rp {{ number_format($layanan->harga, 0, ',', '.') }}</td>
                     <td>
                         <a href="{{ route('layanan.edit', $layanan->id) }}" class="btn btn-sm btn-warning">Edit</a>
@@ -45,4 +63,19 @@
         </tbody>
     </table>
 </div>
+
+<script>
+    function toggleDesc(id) {
+        const shortDesc = document.getElementById('short-desc-' + id);
+        const fullDesc = document.getElementById('full-desc-' + id);
+
+        if (shortDesc.style.display === 'none') {
+            shortDesc.style.display = '';
+            fullDesc.style.display = 'none';
+        } else {
+            shortDesc.style.display = 'none';
+            fullDesc.style.display = '';
+        }
+    }
+</script>
 @endsection
