@@ -13,7 +13,7 @@
                 icon: 'success',
                 title: 'Berhasil!',
                 text: '{{ session('success') }}',
-                timer: 3000,
+                timer: 1000,
                 timerProgressBar: true,
                 showConfirmButton: false,
                 toast: true,

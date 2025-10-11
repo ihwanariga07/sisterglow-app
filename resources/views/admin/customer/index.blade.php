@@ -4,7 +4,8 @@
 
 @section('content')
 <style>
-    table td, table th {
+    table td,
+    table th {
         color: white !important;
     }
 </style>
@@ -43,7 +44,8 @@
                     <a href="{{ route('customer.edit', $customer->id) }}" class="btn btn-warning btn-sm">Edit</a>
                     <form action="{{ route('customer.destroy', $customer->id) }}" method="POST" style="display:inline;">
                         @csrf @method('DELETE')
-                        <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin hapus data ini?')">Hapus</button>
+                        <button class="btn btn-danger btn-sm"
+                            onclick="return confirm('Yakin hapus data ini?')">Hapus</button>
                     </form>
                 </td>
             </tr>

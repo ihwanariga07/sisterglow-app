@@ -8,8 +8,19 @@
     <a href="{{ route('layanan.create') }}" class="btn btn-primary mb-3">+ Tambah Layanan</a>
 
     @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
+        <div id="alert-success" class="alert alert-success">{{ session('success') }}</div>
     @endif
+    <!-- ini script untuk alert supaya ada durasi -->
+    <script>
+        setTimeout(()=>{
+            const alert = document.getElementById('alert-success');
+            if (alert) {
+                alert.style.transition = 'opacity 0.5s ease';
+                alert.style.opacity = '0';
+                setTimeout(() => alert.remove(), 500);
+            }
+        },3000);
+    </script>    
 
     <table class="table table-dark table-bordered table-hover text-center">
         <thead>
